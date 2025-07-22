@@ -1,22 +1,27 @@
 ﻿using System;
 
-public class SupportAgent
+namespace Day1Proj2.Models
 {
-	public int AgentId { get; set; }
-	public string Name { get; set; }
-	public string Dept { get; set; }
 
-    public SupportAgent(int aid , string name , string dept)
+	public class SupportAgent
 	{
-		AgentId = aid;
-		Name = name;
-		Dept = dept;
+		public int AgentId { get; set; }
+		public string Name { get; set; }
+		public string Dept { get; set; }
 
-    }
+		public SupportAgent(int aid , string name , string dept)
+		{
+			AgentId = aid;
+			Name = name;
+			Dept = dept;
 
-	public void DisplayAgent()
-	{
-		Console.WriteLine("$Agent ID : {AgentId} - Name : {Name} - Dept : {Dept}");
-    }
+		}
+
+		public void DisplayAgent()
+		{
+			Console.WriteLine("$Agent ID : {AgentId} - Name : {Name} - Dept : {Dept}");
+		}
+	}
+
 }
 

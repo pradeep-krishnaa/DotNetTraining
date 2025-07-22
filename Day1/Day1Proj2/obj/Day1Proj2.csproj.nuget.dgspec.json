@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day1Proj2\\Day1Proj2.csproj": {}
+    "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day1\\Day1Proj2\\Day1Proj2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day1Proj2\\Day1Proj2.csproj": {
+    "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day1\\Day1Proj2\\Day1Proj2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day1Proj2\\Day1Proj2.csproj",
+        "projectUniqueName": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day1\\Day1Proj2\\Day1Proj2.csproj",
         "projectName": "Day1Proj2",
-        "projectPath": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day1Proj2\\Day1Proj2.csproj",
+        "projectPath": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day1\\Day1Proj2\\Day1Proj2.csproj",
         "packagesPath": "C:\\Users\\pradkris\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day1Proj2\\obj\\",
+        "outputPath": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day1\\Day1Proj2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
