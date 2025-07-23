@@ -1,0 +1,15 @@
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj1Phase2\obj\Debug\net8.0\Day2Proj1Phase2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj1Phase2\obj\Debug\net8.0\Day2Proj1Phase2.AssemblyInfoInputs.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj1Phase2\obj\Debug\net8.0\Day2Proj1Phase2.AssemblyInfo.cs
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj1Phase2\obj\Debug\net8.0\Day2Proj1Phase2.csproj.CoreCompileInputs.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj1Phase2\obj\Debug\net8.0\Day2Proj1Phase2.sourcelink.json
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj1Phase2\bin\Debug\net8.0\Day2Proj1Phase2.exe
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj1Phase2\bin\Debug\net8.0\Day2Proj1Phase2.deps.json
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj1Phase2\bin\Debug\net8.0\Day2Proj1Phase2.runtimeconfig.json
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj1Phase2\bin\Debug\net8.0\Day2Proj1Phase2.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj1Phase2\bin\Debug\net8.0\Day2Proj1Phase2.pdb
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj1Phase2\obj\Debug\net8.0\Day2Proj1Phase2.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj1Phase2\obj\Debug\net8.0\refint\Day2Proj1Phase2.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj1Phase2\obj\Debug\net8.0\Day2Proj1Phase2.pdb
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj1Phase2\obj\Debug\net8.0\Day2Proj1Phase2.genruntimeconfig.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj1Phase2\obj\Debug\net8.0\ref\Day2Proj1Phase2.dll

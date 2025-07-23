@@ -1,0 +1,15 @@
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj2\obj\Debug\net8.0\Day2Proj2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj2\obj\Debug\net8.0\Day2Proj2.AssemblyInfoInputs.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj2\obj\Debug\net8.0\Day2Proj2.AssemblyInfo.cs
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj2\obj\Debug\net8.0\Day2Proj2.csproj.CoreCompileInputs.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj2\obj\Debug\net8.0\Day2Proj2.sourcelink.json
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj2\bin\Debug\net8.0\Day2Proj2.exe
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj2\bin\Debug\net8.0\Day2Proj2.deps.json
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj2\bin\Debug\net8.0\Day2Proj2.runtimeconfig.json
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj2\bin\Debug\net8.0\Day2Proj2.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj2\bin\Debug\net8.0\Day2Proj2.pdb
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj2\obj\Debug\net8.0\Day2Proj2.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj2\obj\Debug\net8.0\refint\Day2Proj2.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj2\obj\Debug\net8.0\Day2Proj2.pdb
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj2\obj\Debug\net8.0\Day2Proj2.genruntimeconfig.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Day2\Day2Proj2\obj\Debug\net8.0\ref\Day2Proj2.dll
