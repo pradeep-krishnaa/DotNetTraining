@@ -31,6 +31,11 @@ This is a basic implementation of a **Ticket Management System** created as part
 
 ---
 
+## Output Screenshots
+
+<img width="606" height="305" alt="image" src="https://github.com/user-attachments/assets/33f9d13b-d550-48bb-a4a1-38681066cae4" />
+
+
 ## Git Commands Used
 
 ```bash
