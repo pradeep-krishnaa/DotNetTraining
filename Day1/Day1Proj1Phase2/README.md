@@ -24,6 +24,11 @@ This phase extends the basic Ticket Management System by enhancing the `Ticket` 
 
 ---
 
+## Output Screenshots
+
+<img width="893" height="419" alt="image" src="https://github.com/user-attachments/assets/6fea7259-2428-4662-8a1f-c55e3eed7f8f" />
+
+
 ## Git Commands Used
 
 ```bash
