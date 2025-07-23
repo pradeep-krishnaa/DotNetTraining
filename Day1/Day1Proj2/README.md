@@ -53,6 +53,11 @@ Represents a customer support request that can be assigned to a support agent.
 
 ---
 
+## Output Screenshots
+
+<img width="566" height="761" alt="image" src="https://github.com/user-attachments/assets/3f1e891b-3429-4e51-82b4-4d74f01c84c5" />
+
+
 ## Git Commands Used
 
 ```bash
