@@ -28,14 +28,14 @@ namespace LeaveMngtSystemPhase1
             leaveService.DisplayAll(leaveRequests);
             Console.WriteLine();
 
-            leaveService.ShowApprovals(approvables);
+            leaveService.ShowAllApprovals(approvables);
             Console.WriteLine();
 
 
             sickLeave.Approve();
             casualLeave.Reject();
 
-            leaveService.ShowApprovals(approvables);
+            leaveService.ShowAllApprovals(approvables);
 
         }
     }

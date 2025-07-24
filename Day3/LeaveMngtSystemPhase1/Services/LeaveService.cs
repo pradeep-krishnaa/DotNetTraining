@@ -13,7 +13,7 @@ namespace LeaveMngtSystemPhase1.Services;
             }
         }
 
-        public void ShowApprovals(List<IApprovable> approvables)
+        public void ShowAllApprovals(List<IApprovable> approvables)
         {
             foreach (var approvable in approvables)
             {

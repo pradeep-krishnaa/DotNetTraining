@@ -7,5 +7,5 @@ namespace LeaveMngtSystemPhase1.Services;
 
 public interface ILeaveService { 
     void DisplayAll(List<LeaveRequest> leaveRequests);
-    void ShowApprovals(List<IApprovable> approvables);
+    void ShowAllApprovals(List<IApprovable> approvables);
 }
