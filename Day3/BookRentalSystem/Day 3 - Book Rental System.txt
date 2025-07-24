@@ -1,0 +1,247 @@
+Day 3 - Book Rental System
+
+Project Folder Structure 
+
+Day2Proj2/
+├── Models/
+│   ├── Book.cs
+│   ├── Fiction.cs
+│   ├── NonFiction.cs
+│   └── IRentabe.cs
+└── Services
+│   ├── IBookService.cs
+│   ├── BookService.cs
+└── Program.cs 
+
+-- Models/Book.cs--
+
+using System;
+
+namespace BookRentalSystem.Models;
+
+public abstract class Book
+{
+    //`Id`, `Title`, `Author`, `IsAvailable`
+    public int Id { get; set; }
+    public string Title { get; set; }
+    public string Author { get; set; }
+    public bool IsAvailable { get; set; } = true;
+
+    public Book(int id, string title, string author)
+    {
+        Id = id;
+        Title = title;
+        Author = author;
+    }
+
+    public abstract void Display();
+
+
+}
+
+
+---Models/Fiction.cs---
+
+using System;
+
+namespace BookRentalSystem.Models;
+
+public class Fiction : Book , IRentable
+{
+    public string Genre { get; set; }
+
+    public Fiction(int id, string title, string author, bool isAvailable , string genre) : base(id , title , author)
+    {
+        Genre = genre;
+    } 
+
+    public void Rent()
+    {
+        IsAvailable = false;
+        Console.WriteLine($"Fiction Book: #ID {Id} has been rented.");
+    }
+
+    public void Return()
+    {
+        IsAvailable = true;
+        Console.WriteLine($"Fiction Book: #ID {Id} has been returned.");
+    }
+
+    public void ReportStatus()
+    {
+        Console.WriteLine($"Fiction Book: #ID {Id} is {(IsAvailable ? "available" : "not available")} for rent.");
+    }
+
+    public override void Display()
+    {
+        Console.WriteLine($"Fiction Book: #ID {Id}, Title: {Title}, Author: {Author}, Genre: {Genre}, Available: {IsAvailable}");
+    }
+}
+
+
+---Models/NonFiction.cs---
+
+using System;
+
+namespace BookRentalSystem.Models;
+
+public class NonFiction : Book, IRentable
+{
+    public string Category { get; set; }
+
+    public NonFiction(int id, string title, string author, bool isAvailable, string category) : base(id, title, author)
+    {
+        Category = category;
+    }
+
+    public void Rent()
+    {
+        IsAvailable = false;
+        Console.WriteLine($"Non Fiction Book: #ID {Id} has been rented.");
+
+    }
+
+    public void Return()
+    {
+        IsAvailable = true;
+        Console.WriteLine($"Non Fiction Book: #ID {Id} has been returned.");
+    }
+
+    public void ReportStatus()
+    {
+        Console.WriteLine($"Non Fiction Book: #ID {Id} is {(IsAvailable ? "available" : "not available")} for rent.");
+    }
+
+    public override void Display()
+    {
+        Console.WriteLine($"Non Fiction Book: #ID {Id}, Title: {Title}, Author: {Author}, Category: {Category}, Available: {IsAvailable}");
+    }
+}
+
+---Models/IRentable.cs---
+
+using System; 
+
+namespace BookRentalSystem.Models;
+
+public interface IRentable
+{
+	void Rent();
+	void Return();
+
+	void ReportStatus();
+
+}
+
+
+---Services/IBookService---
+
+using System;
+
+using BookRentalSystem.Models;
+
+namespace BookRentalSystem.Services;
+
+public interface IBookService 
+{
+    void ReportAllStatus(List<IRentable> rentables);
+    void DisplayAll(List<Book> books);
+}
+
+---Services/BookService---
+
+using System;
+
+using BookRentalSystem.Models;
+
+namespace BookRentalSystem.Services;
+
+public class BookService : IBookService
+{
+    public void ReportAllStatus(List<IRentable> rentables)
+    {
+  
+        foreach (var rentable in rentables)
+        {
+            rentable.ReportStatus();
+        }
+    }
+
+    public void DisplayAll(List<Book> books)
+    {
+        foreach (var book in books)
+        {
+            book.Display();
+        }
+    }
+}
+
+---Program.cs---
+
+using System;
+
+using System.Collections.Generic;
+using BookRentalSystem.Models;
+using BookRentalSystem.Services;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        Fiction book1 = new Fiction(1, "The Great Gatsby", "F. Scott Fitzgerald", true, "Classic");
+        NonFiction book2 = new NonFiction(2, "Sapiens", "Yuval Noah Harari", true, "History");
+
+        List<Book> books = new List<Book> { book1 , book2 };
+        List<IRentable> rentables = new List<IRentable> { book1, book2 };
+
+        BookService bookService = new BookService();
+
+        bookService.ReportAllStatus(rentables);
+        Console.WriteLine();
+        book1.Rent();
+        book2.Rent();
+        Console.WriteLine();
+        bookService.ReportAllStatus(rentables);
+        Console.WriteLine();
+        book1.Return();
+        Console.WriteLine();
+        bookService.ReportAllStatus(rentables);
+        Console.WriteLine();
+
+        bookService.DisplayAll(books);
+
+
+    }
+}
+
+---Output---
+
+Fiction Book: #ID 1 is available for rent.
+Non Fiction Book: #ID 2 is available for rent.
+
+Fiction Book: #ID 1 has been rented.
+Non Fiction Book: #ID 2 has been rented.
+
+Fiction Book: #ID 1 is not available for rent.
+Non Fiction Book: #ID 2 is not available for rent.
+
+Fiction Book: #ID 1 has been returned.
+
+Fiction Book: #ID 1 is available for rent.
+Non Fiction Book: #ID 2 is not available for rent.
+
+Fiction Book: #ID 1, Title: The Great Gatsby, Author: F. Scott Fitzgerald, Genre: Classic, Available: True
+Non Fiction Book: #ID 2, Title: Sapiens, Author: Yuval Noah Harari, Category: History, Available: False
+
+---Commands used:---
+
+dotnet build
+dotnet run
+git pull
+git add .
+git commit -m "commit msg"
+git push origin main
+
+GitHub repo for Book rental System
+
+https://github.com/pradeep-krishnaa/DotNetTraining/tree/main/Day3/BookRentalSystem
