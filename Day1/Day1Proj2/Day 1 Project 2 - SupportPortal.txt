@@ -1,0 +1,184 @@
+Day 1 Project 2 - SupportPortal
+
+Project Folder Structure 
+
+Day1Proj2/
+├── Models/
+│   ├── SupportAgent.cs
+│   ├── SupportRequest.cs
+└── Program.cs
+
+step 1 : Create a folder - Models
+
+step 2 : Create SupportAgent.cs in Models
+
+using System;
+
+namespace Day1Proj2.Models
+{
+
+	public class SupportAgent
+	{
+		public int AgentId { get; set; }
+		public string Name { get; set; }
+		public string Dept { get; set; }
+
+		public SupportAgent(int aid , string name , string dept)
+		{
+			AgentId = aid;
+			Name = name;
+			Dept = dept;
+
+		}
+
+		public void DisplayAgent()
+		{
+			Console.WriteLine("$Agent ID : {AgentId} - Name : {Name} - Dept : {Dept}");
+		}
+	}
+
+}
+
+step 3 : SupportRequest.cs in Models
+
+using System;
+
+namespace Day1Proj2.Models { 
+
+	public class SupportRequest
+	{
+		public int RequestId { get; set; }
+		public string Issue { get; set; }
+		public string Status { get; set; }
+		public DateTime CreatedOn { get; private set; } = DateTime.Now;
+		public int ResolutionTime { get; set; } // in hours
+		public bool IsResolved { get; set; } = false;
+		public SupportAgent AssignedTo { get; set; }
+		public SupportRequest(int requestId ,string issue , string status , SupportAgent assigneto)
+		{
+			RequestId = requestId;
+			Issue = issue;
+			Status = status;
+			AssignedTo = assigneto;
+		
+		}
+
+		public void ResolveRequest()
+		{
+			if (IsResolved)
+			{
+				return;
+			}
+			else
+			{
+				IsResolved = true;
+				ResolutionTime = (int)(DateTime.Now - CreatedOn).TotalHours;
+			}
+		}
+
+		public void ReassignRequest(SupportAgent newAgent)
+		{
+			AssignedTo = newAgent;
+			Console.WriteLine($"Support request {RequestId} has been reassigned to {newAgent.Name}.");
+		}
+
+        public void DisplayRequest()
+		{
+				Console.WriteLine("Support Request Info");
+				Console.WriteLine($"Request ID   : {RequestId}");
+				Console.WriteLine($"Issue        : {Issue}");
+				//Console.WriteLine($"Description  : {Description}");
+				Console.WriteLine($"Status       : {Status}");
+				Console.WriteLine($"Created On   : {CreatedOn}");
+				Console.WriteLine($"Assigned To  : {AssignedTo.Name}");
+				Console.WriteLine($"Resolved     : {IsResolved}");
+				if (IsResolved)
+				{
+					Console.WriteLine($"Resolution Time: {ResolutionTime} hour(s)");
+				}
+        }
+	}
+}
+
+
+step 4 : edit program.cs
+
+using Day1Proj2.Models;
+
+public class Program 
+{
+    public static void Main(string[] args)
+    {
+        SupportAgent agent1 = new SupportAgent(1, "Pradeep", "Technical Support");
+        SupportAgent agent2 = new SupportAgent(2, "Krishnaa", "Customer Service");
+
+        SupportRequest request1 = new SupportRequest(101, "Login Issue", "Open", agent1);
+        SupportRequest request2 = new SupportRequest(102, "Payment Failure", "Open", agent2);
+
+        Console.WriteLine("Before Resolving Request 1");
+        request1.DisplayRequest();
+        Console.WriteLine("---------------------------------------");
+        request1.ResolveRequest();
+        Console.WriteLine("After Resolving Request 1");
+        request1.DisplayRequest();
+        Console.WriteLine("---------------------------------------");
+        Console.WriteLine("Before Reassigning Request 2");
+        request2.DisplayRequest();
+        Console.WriteLine("---------------------------------------");
+        Console.WriteLine("Reassigning Request 2 to Agent 1");
+        request2.ReassignRequest(agent1);
+        Console.WriteLine("---------------------------------------");
+        request2.DisplayRequest();
+
+
+    }
+
+
+}
+
+step 5 : save all files
+
+step 6 : Build the project - dotnet build
+
+step 7 : Run the project - dotnet run
+
+Output:
+
+Before Resolving Request 1
+Support Request Info
+Request ID   : 101
+Issue        : Login Issue
+Status       : Open
+Created On   : 24-07-2025 10:45:57
+Assigned To  : Pradeep
+Resolved     : False
+---------------------------------------
+After Resolving Request 1
+Support Request Info
+Request ID   : 101
+Issue        : Login Issue
+Status       : Open
+Created On   : 24-07-2025 10:45:57
+Assigned To  : Pradeep
+Resolved     : True
+Resolution Time: 0 hour(s)
+---------------------------------------
+Before Reassigning Request 2
+Support Request Info
+Request ID   : 102
+Issue        : Payment Failure
+Status       : Open
+Created On   : 24-07-2025 10:45:57
+Assigned To  : Krishnaa
+Resolved     : False
+---------------------------------------
+Reassigning Request 2 to Agent 1
+Support request 102 has been reassigned to Pradeep.
+---------------------------------------
+Support Request Info
+Request ID   : 102
+Issue        : Payment Failure
+Status       : Open
+Created On   : 24-07-2025 10:45:57
+Assigned To  : Pradeep
+Resolved     : False
