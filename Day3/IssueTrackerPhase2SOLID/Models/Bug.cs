@@ -30,7 +30,6 @@ public class Bug : Issue, IReportable
     public override void Display()
     {
         Console.Write("[Bug] ");
-        base.Display();
         Console.WriteLine($"Severity: {Severity}");
     }
 

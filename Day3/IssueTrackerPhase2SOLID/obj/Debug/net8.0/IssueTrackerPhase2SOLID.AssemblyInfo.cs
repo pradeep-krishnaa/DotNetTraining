@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IssueTrackerPhase2SOLID")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e75cf5676222309d92e7b0e6cff80d25e92881a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a0ab07fcacb9544d92262beaa311ad7d5683170b")]
 [assembly: System.Reflection.AssemblyProductAttribute("IssueTrackerPhase2SOLID")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IssueTrackerPhase2SOLID")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

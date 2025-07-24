@@ -41,9 +41,9 @@ public class FeatureRequest : Issue , IReportable
 
     public override void Display()
     {
-        
+
         Console.Write("[Feature Request] ");
-        base.Display();
+
         Console.WriteLine($"Requested By: {RequestedBy}, Planned Release Date: {PlannedReleaseDate}");
     }
 

@@ -2,7 +2,7 @@ using System;
 
 namespace IssueTrackerPhase2SOLID.Models;
 
-public class Issue
+public abstract class Issue
 {
     // ID , Title , AssignedTo
     public int ID { get; set; }
@@ -36,10 +36,8 @@ public class Issue
     }
 
 
-    public virtual void Display()    // if you want to have one display method and want to override it in derived classes, this display should be a virtual function
-    {
-        Console.WriteLine($" ID: {ID}, Title: {Title}, Assigned To: {AssignedTo}");
-    }
+    public abstract void Display();// if you want to have one display method and want to override it in derived classes, this display should be a virtual function
+    
 
 }
 

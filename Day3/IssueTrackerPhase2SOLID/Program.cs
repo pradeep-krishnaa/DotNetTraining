@@ -1,4 +1,5 @@
 ﻿using IssueTrackerPhase2SOLID.Models;
+using IssueTrackerPhase2SOLID.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,28 +23,26 @@ public class Program
         Bug invalidbug = new Bug(1, "Login Bug", "", "High");
         if (invalidbug.IsValid) issues.Add(bug);
 
+        List<IReportable> reportables = new List<IReportable>();
+        reportables.Add(bug);
+        reportables.Add(task);
+        reportables.Add(featureRequest);
+
+        IssueService issueService = new IssueService();
+
         // Display all issues
         Console.WriteLine("\nDisplaying Issues:");
-        foreach (var issue in issues)
-        {
-            issue.Display();
-        }
+        issueService.DisplayAllIssues(issues);
 
         // Report status
         Console.WriteLine();
         Console.WriteLine("Reporting Status of Issues:");
-        foreach (var issue in issues.OfType<IReportable>())
-        {
-            issue.ReportStatus();
-        }
+        issueService.GetAllReportStatus(reportables);
 
         // Get summary
         Console.WriteLine();
         Console.WriteLine("Getting Summary of Issues:");
-        foreach (var issue in issues.OfType<IReportable>())
-        {
-            issue.GetSummary();
-        }
+        issueService.GetAllSummary(reportables);
 
         int openCount = 0;
         int closedCount = 0;

@@ -30,7 +30,6 @@ namespace IssueTrackerPhase2SOLID.Models
         public override void Display()
         {
             Console.Write("[Task] ");
-            base.Display();
             Console.WriteLine($"Estimated Hours: {EstimatedHours}");
         }
         public void ReportStatus()
