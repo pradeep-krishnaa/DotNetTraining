@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LeaveMngtSystemPhase1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d2514c7bf3bb7e45d1076fe352f3602e294e991b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e75cf5676222309d92e7b0e6cff80d25e92881a")]
 [assembly: System.Reflection.AssemblyProductAttribute("LeaveMngtSystemPhase1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LeaveMngtSystemPhase1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

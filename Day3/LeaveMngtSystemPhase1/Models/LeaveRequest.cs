@@ -22,5 +22,4 @@ public abstract class LeaveRequest
         }
 
         public abstract void Display();
-        public abstract void ShowApprovalStatus();
     }

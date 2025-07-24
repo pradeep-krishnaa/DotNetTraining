@@ -14,7 +14,7 @@ public class SickLeave : LeaveRequest, IApprovable
     {
         Console.WriteLine($"Sick Leave Request: Id={Id}, Employee={EmpName}, Days Requested={DaysRequested}, Doctor Note : {DoctorNote}, Status={Status}");
     }
-    public override void ShowApprovalStatus()
+    public void ShowApprovalStatus()
     {
         Console.WriteLine($"Sick Leave Request Status: {Status}");
     }

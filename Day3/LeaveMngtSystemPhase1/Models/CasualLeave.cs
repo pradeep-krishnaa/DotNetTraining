@@ -14,7 +14,7 @@ public class CasualLeave : LeaveRequest, IApprovable
     {
         Console.WriteLine($"Casual Leave Request: Id={Id}, Employee={EmpName}, Days Requested={DaysRequested}, Reason = {Reason}, Status={Status}");
     }
-    public override void ShowApprovalStatus()
+    public void ShowApprovalStatus()
     {
         Console.WriteLine($"Casual Leave Request Status: {Status}");
     }

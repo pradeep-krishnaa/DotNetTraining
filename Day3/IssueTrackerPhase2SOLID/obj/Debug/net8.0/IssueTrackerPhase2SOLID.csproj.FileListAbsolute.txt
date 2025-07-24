@@ -1,0 +1,15 @@
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\IssueTrackerPhase2SOLID\bin\Debug\net8.0\IssueTrackerPhase2SOLID.exe
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\IssueTrackerPhase2SOLID\bin\Debug\net8.0\IssueTrackerPhase2SOLID.deps.json
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\IssueTrackerPhase2SOLID\bin\Debug\net8.0\IssueTrackerPhase2SOLID.runtimeconfig.json
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\IssueTrackerPhase2SOLID\bin\Debug\net8.0\IssueTrackerPhase2SOLID.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\IssueTrackerPhase2SOLID\bin\Debug\net8.0\IssueTrackerPhase2SOLID.pdb
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\IssueTrackerPhase2SOLID\obj\Debug\net8.0\IssueTrackerPhase2SOLID.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\IssueTrackerPhase2SOLID\obj\Debug\net8.0\IssueTrackerPhase2SOLID.AssemblyInfoInputs.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\IssueTrackerPhase2SOLID\obj\Debug\net8.0\IssueTrackerPhase2SOLID.AssemblyInfo.cs
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\IssueTrackerPhase2SOLID\obj\Debug\net8.0\IssueTrackerPhase2SOLID.csproj.CoreCompileInputs.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\IssueTrackerPhase2SOLID\obj\Debug\net8.0\IssueTrackerPhase2SOLID.sourcelink.json
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\IssueTrackerPhase2SOLID\obj\Debug\net8.0\IssueTrackerPhase2SOLID.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\IssueTrackerPhase2SOLID\obj\Debug\net8.0\refint\IssueTrackerPhase2SOLID.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\IssueTrackerPhase2SOLID\obj\Debug\net8.0\IssueTrackerPhase2SOLID.pdb
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\IssueTrackerPhase2SOLID\obj\Debug\net8.0\IssueTrackerPhase2SOLID.genruntimeconfig.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\IssueTrackerPhase2SOLID\obj\Debug\net8.0\ref\IssueTrackerPhase2SOLID.dll
