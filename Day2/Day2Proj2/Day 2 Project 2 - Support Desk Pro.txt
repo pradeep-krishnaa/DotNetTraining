@@ -1,0 +1,199 @@
+Day 2 Project 2 - Support Desk Pro
+
+Project Folder Structure
+
+Day2Proj2/
+├── Models/
+│   ├── SupportTicket.cs
+│   ├── BugReport.cs
+│   ├── FeatureRequest.cs
+│   └── IReportable.cs
+└── Program.cs
+
+Step 1 : Create a folder - Models
+
+Step 2 : Create SupportTicket.cs (Base Class) in Models
+using System;
+
+namespace Day2Proj2.Models;
+
+public class SupportTicket
+{
+    public int Id { get; set; }
+    public string Title { get; set; }
+    public string Description { get; set; }
+    public string CreatedBy { get; set; } // User who created the ticket
+    public string Status { get; set; } = "Open";// e.g., "Open", "In Progress", "Closed"
+
+    public SupportTicket(int id, string title, string description, string createdBy, string status)
+    {
+        Id = id;
+        Title = title;
+        Description = description;
+        CreatedBy = createdBy;
+        Status = status;
+    }
+
+    public virtual void Display()
+    {
+        Console.WriteLine($"#Id: {Id} , Title: {Title} , Desc: {Description} , CreatedBy: {CreatedBy} , Status: {Status}");
+    }
+
+    public void CloseTicket()
+    {
+        Status = "Closed";
+        Console.WriteLine($"Ticket #{Id} status updated to: Closed");
+    }
+
+}
+
+step 3 : Create IReportable.cs (Interface) in Models
+
+using System;
+
+namespace Day2Proj2.Models
+{
+    public interface IReportable
+    {
+        void ReportStatus();
+    }
+    
+}
+
+step 4 : Create BugReport.cs (Inherits base class and interface) in Models
+
+using System;
+
+namespace Day2Proj2.Models;
+
+public class BugReport : SupportTicket , IReportable
+{
+    public string Severity { get; set; }
+    public BugReport(int id, string title, string description, string createdBy, string status, string severity)
+        : base(id, title, description, createdBy, status)
+    {
+        Severity = severity;
+    }
+
+    public override void Display()
+    {
+        Console.WriteLine($"Bug #Id: {Id} , Title: {Title} , Desc: {Description} , CreatedBy: {CreatedBy} , Severity: {Severity}");
+    }
+
+    public void ReportStatus()
+    {
+        Console.WriteLine($"Bug Report Status: {Status}");
+    }
+}
+
+step 5 : Create FeatureRequest.cs (inherits base class and interface) in Models
+
+using System;
+
+namespace Day2Proj2.Models
+{
+    public class FeatureRequest : SupportTicket, IReportable
+    {
+        public string RequestedBy { get; set; }
+        public string ETA { get; set; } // Estimated Time of Arrival for the feature;
+
+        public FeatureRequest(int id, string title, string description, string createdBy, string status, string requestedBy, string eta)
+            : base(id, title, description, createdBy, status)
+        {
+            RequestedBy = requestedBy;
+            ETA = eta;
+        }
+
+        public override void Display()
+        {
+            Console.WriteLine($"Feature Request #Id: {Id} , Title: {Title} , Desc: {Description} , CreatedBy: {CreatedBy} , RequestedBy: {RequestedBy} , ETA: {ETA}");
+        }
+        public void ReportStatus()
+        {
+            Console.WriteLine($"Feature Request Status: {Status}");
+        }
+    }
+}
+
+step 6 : Edit Program.cs 
+
+using Day2Proj2.Models;
+using System; 
+
+namespace Day2Proj2;
+
+public class Program {
+    public static void Main(string[] args) {
+
+        List<SupportTicket> tickets = new List<SupportTicket>();
+        var bugReport = new Models.BugReport(1, "Login Bug", "Unable to login with valid credentials", "Alice", "Open", "High");
+        var featureRequest = new Models.FeatureRequest(2, "New Login Feature", "Add social media login options", "Bob", "Open", "Charlie", "2023-12-31");
+        tickets.Add(bugReport);
+        tickets.Add(featureRequest);
+
+
+        foreach(var ticket in tickets) {
+            ticket.Display();
+        }
+
+        Console.WriteLine("----------------------------------------------------");
+
+        foreach (var ticket in tickets.OfType<IReportable>()) {
+            ticket.ReportStatus();
+        }
+
+        Console.WriteLine("----------------------------------------------------");
+
+        bugReport.CloseTicket();
+        featureRequest.CloseTicket();
+        Console.WriteLine("----------------------------------------------------");
+
+        Console.WriteLine("After closing tickets:");
+
+        foreach (var ticket in tickets.OfType<IReportable>())
+        {
+            ticket.ReportStatus();
+        }
+        Console.WriteLine("----------------------------------------------------");
+
+
+    }
+}
+
+step 7 : Save all Programs
+
+step 8 : Build the project - dotnet build
+
+step 9 : Run the project - dotnet run
+
+Output :
+
+Bug #Id: 1 , Title: Login Bug , Desc: Unable to login with valid credentials , CreatedBy: Alice , Severity: High
+Feature Request #Id: 2 , Title: New Login Feature , Desc: Add social media login options , CreatedBy: Bob , RequestedBy: Charlie , ETA: 2023-12-31
+
+Bug Report Status: Open
+Feature Request Status: Open
+----------------------------------------------------
+Ticket #1 status updated to: Closed
+Ticket #2 status updated to: Closed
+----------------------------------------------------
+After closing tickets:
+Bug Report Status: Closed
+Feature Request Status: Closed
+----------------------------------------------------
+
+Git Commands used
+
+Git Commands Used
+
+git init
+git pull(if required)
+git add .
+git commit -m "commit msg"
+git branch -M main(if necessary)
+git push origin main
+
+Repo link for Day 2 Project 2 - Support Desk Pro
+https://github.com/pradeep-krishnaa/DotNetTraining/tree/main/Day2/Day2Proj2
+
+
