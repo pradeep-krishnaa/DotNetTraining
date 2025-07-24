@@ -1,0 +1,15 @@
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\BookRentalSystem\obj\Debug\net8.0\BookRentalSystem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\BookRentalSystem\obj\Debug\net8.0\BookRentalSystem.AssemblyInfoInputs.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\BookRentalSystem\obj\Debug\net8.0\BookRentalSystem.AssemblyInfo.cs
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\BookRentalSystem\obj\Debug\net8.0\BookRentalSystem.csproj.CoreCompileInputs.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\BookRentalSystem\obj\Debug\net8.0\BookRentalSystem.sourcelink.json
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\BookRentalSystem\bin\Debug\net8.0\BookRentalSystem.exe
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\BookRentalSystem\bin\Debug\net8.0\BookRentalSystem.deps.json
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\BookRentalSystem\bin\Debug\net8.0\BookRentalSystem.runtimeconfig.json
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\BookRentalSystem\bin\Debug\net8.0\BookRentalSystem.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\BookRentalSystem\bin\Debug\net8.0\BookRentalSystem.pdb
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\BookRentalSystem\obj\Debug\net8.0\BookRentalSystem.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\BookRentalSystem\obj\Debug\net8.0\refint\BookRentalSystem.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\BookRentalSystem\obj\Debug\net8.0\BookRentalSystem.pdb
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\BookRentalSystem\obj\Debug\net8.0\BookRentalSystem.genruntimeconfig.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Day3\BookRentalSystem\obj\Debug\net8.0\ref\BookRentalSystem.dll
