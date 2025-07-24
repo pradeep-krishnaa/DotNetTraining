@@ -182,3 +182,15 @@ Status       : Open
 Created On   : 24-07-2025 10:45:57
 Assigned To  : Pradeep
 Resolved     : False
+
+Git Commands Used
+
+git init
+git pull(if required)
+git add .
+git commit -m "commit msg"
+git branch -M main(if necessary)
+git push origin main
+
+Repo link for Day1 Project2
+https://github.com/pradeep-krishnaa/DotNetTraining/tree/main/Day1/Day1Proj2
