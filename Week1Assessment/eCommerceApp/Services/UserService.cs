@@ -29,7 +29,7 @@ namespace eCommerceApp.Services
             Console.WriteLine("Cart Summary:");
             foreach (var purchable in purchables)
             {
-                purchable.OrderSummary();
+                purchable.ViewCart();
             }
         }
     }
