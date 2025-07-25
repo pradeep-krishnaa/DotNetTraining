@@ -1,0 +1,15 @@
+C:\Users\pradkris\source\repos\DotNetTraining\Week1Assessment\eCommerceApp\obj\Debug\net8.0\eCommerceApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pradkris\source\repos\DotNetTraining\Week1Assessment\eCommerceApp\obj\Debug\net8.0\eCommerceApp.AssemblyInfoInputs.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Week1Assessment\eCommerceApp\obj\Debug\net8.0\eCommerceApp.AssemblyInfo.cs
+C:\Users\pradkris\source\repos\DotNetTraining\Week1Assessment\eCommerceApp\obj\Debug\net8.0\eCommerceApp.csproj.CoreCompileInputs.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Week1Assessment\eCommerceApp\obj\Debug\net8.0\eCommerceApp.sourcelink.json
+C:\Users\pradkris\source\repos\DotNetTraining\Week1Assessment\eCommerceApp\bin\Debug\net8.0\eCommerceApp.exe
+C:\Users\pradkris\source\repos\DotNetTraining\Week1Assessment\eCommerceApp\bin\Debug\net8.0\eCommerceApp.deps.json
+C:\Users\pradkris\source\repos\DotNetTraining\Week1Assessment\eCommerceApp\bin\Debug\net8.0\eCommerceApp.runtimeconfig.json
+C:\Users\pradkris\source\repos\DotNetTraining\Week1Assessment\eCommerceApp\bin\Debug\net8.0\eCommerceApp.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Week1Assessment\eCommerceApp\bin\Debug\net8.0\eCommerceApp.pdb
+C:\Users\pradkris\source\repos\DotNetTraining\Week1Assessment\eCommerceApp\obj\Debug\net8.0\eCommerceApp.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Week1Assessment\eCommerceApp\obj\Debug\net8.0\refint\eCommerceApp.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Week1Assessment\eCommerceApp\obj\Debug\net8.0\eCommerceApp.pdb
+C:\Users\pradkris\source\repos\DotNetTraining\Week1Assessment\eCommerceApp\obj\Debug\net8.0\eCommerceApp.genruntimeconfig.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Week1Assessment\eCommerceApp\obj\Debug\net8.0\ref\eCommerceApp.dll
