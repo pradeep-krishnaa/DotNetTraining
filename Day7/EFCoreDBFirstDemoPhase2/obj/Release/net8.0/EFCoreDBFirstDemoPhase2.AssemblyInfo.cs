@@ -12,7 +12,7 @@ using System;
 using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("EFCoreDBFirstDemoPhase2")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8af7fb9bbc07babcf0aabe7bfd8dcdff51b9a5c4")]
 [assembly: System.Reflection.AssemblyProductAttribute("EFCoreDBFirstDemoPhase2")]
