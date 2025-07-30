@@ -77,7 +77,6 @@ namespace EFCoreDBFirstDemoPhase2
             }
             Console.WriteLine($"Total Employees found: {employees.Count}");
             Console.WriteLine();
-
             Console.WriteLine("------ Deleting Employee Id 101 ------");
             int empIdToDelete = 101;
 
