@@ -9,7 +9,7 @@ create Table Users(
 create Table Tickets(
     TicketID INT PRIMARY KEY,
     Title NVARCHAR(100) NOT NULL,
-    Description NVARCHAR(MAX) NOT NULL,                       -- Optional, long text
+    Description NVARCHAR(MAX) NOT NULL,                       
     CreatedDate DATETIME DEFAULT GETDATE(),
     Status NVARCHAR(100) NOT NULL,
     UserID INT NOT NULL,
@@ -25,9 +25,9 @@ CREATE TABLE Tags(
 CREATE TABLE TicketTags (
     TicketId INT NOT NULL,
     TagId INT NOT NULL,
-    PRIMARY KEY (TicketId, TagId), --- combination of both should be unique - composite primary key
-    FOREIGN KEY (TicketId) REFERENCES Tickets(TicketId) ON DELETE CASCADE,  --- ensures when a ticket is deleted associated records in TicketTags are also deleted
-    FOREIGN KEY (TagId) REFERENCES Tags(TagId) ON DELETE CASCADE --- ensures when a tag is deleted associated records in TicketTags are also deleted
+    PRIMARY KEY (TicketId, TagId), 
+    FOREIGN KEY (TicketId) REFERENCES Tickets(TicketId) ON DELETE CASCADE, 
+    FOREIGN KEY (TagId) REFERENCES Tags(TagId) ON DELETE CASCADE 
 );
 
 -- select * from INFORMATION_SCHEMA.TABLES;
