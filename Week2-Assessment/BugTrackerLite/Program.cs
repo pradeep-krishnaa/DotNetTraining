@@ -104,7 +104,7 @@ public class Program
                     var ticketsWithDetails = issueService.GetAllTicketsWithUsersandTags();
                     foreach (var t in ticketsWithDetails)
                     {
-                        Console.WriteLine($"Ticket ID: {t.TicketId}, Title: {t.Title}, Status: {t.Status}, User: {t.User.UserName}");
+                        Console.WriteLine($"Ticket ID: {t.TicketId}| Title: {t.Title}| Description: {t.Description}| Status: {t.Status}| Craeted On {t.CreatedDate}| User: {t.User.UserName}");
                         if (issueService.TicketTagCount == 0)
                             Console.WriteLine("No tags assigned to this ticket.");
                         
