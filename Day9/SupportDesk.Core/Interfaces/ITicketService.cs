@@ -11,7 +11,7 @@ namespace SupportDesk.Core.Interfaces
     {
         List<Ticket> GetAllTickets();
         List<Ticket> GetTicketsWithUsers();
-        List<Ticket> GetTicketsWithTags();
+        List<Ticket> GetTicketsWithTags();     
         List<User> GetUsersWithTickets();
         List<(string TagName , int TicketCount)> GetTagTicketCount();
         List<(string TagName, int TicketCount)> GetTicketCountsByUsers();

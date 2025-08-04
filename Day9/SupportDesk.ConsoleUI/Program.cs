@@ -43,12 +43,12 @@ namespace SupportDesk.ConsoleUI
             {
                 Console.WriteLine($"Ticket ID: {ticket.TicketId}, Title: {ticket.Title}, User: {ticket.User.UserName}");
             }
-            //Console.WriteLine("Tickets with Tags:");
-            //var ticketsWithTags = ticketService.GetTicketsWithTags();
-            //foreach (var ticket in ticketsWithTags)
-            //{
-            //    Console.WriteLine($"Ticket ID: {ticket.TicketId}, Title: {ticket.Title}, Tags: {string.Join(", ", ticket.TicketTags.Select(tt => tt.Tag.Name))}");
-            //}
+            Console.WriteLine("Tickets with Tags:");
+            var ticketsWithTags = ticketService.GetTicketsWithTags();
+            foreach (var ticket in ticketsWithTags)
+            {
+                Console.WriteLine($"Ticket ID: {ticket.TicketId}, Title: {ticket.Title}, Tags: {string.Join(", ", ticket.TicketTags.Select(tt => tt.Tag.Name))}");
+            }
             Console.WriteLine("Users with Tickets:");
             var usersWithTickets = ticketService.GetUsersWithTickets();
 
@@ -63,12 +63,12 @@ namespace SupportDesk.ConsoleUI
             }
 
 
-            //Console.WriteLine("Tag Ticket Count:");
-            //var tagTicketCount = ticketService.GetTagTicketCount();
-            //foreach (var tagCount in tagTicketCount)
-            //{
-            //    Console.WriteLine($"Tag: {tagCount.TagName}, Ticket Count: {tagCount.TicketCount}");
-            //}
+            Console.WriteLine("Tag Ticket Count:");
+            var tagTicketCount = ticketService.GetTagTicketCount();
+            foreach (var tagCount in tagTicketCount)
+            {
+                Console.WriteLine($"Tag: {tagCount.TagName}, Ticket Count: {tagCount.TicketCount}");
+            }
             Console.WriteLine("Ticket Counts by Users:");
             var ticketCountsByUsers = ticketService.GetTicketCountsByUsers();
             foreach (var userCount in ticketCountsByUsers)
@@ -82,17 +82,17 @@ namespace SupportDesk.ConsoleUI
                 Console.WriteLine($"Ticket ID: {ticket.TicketId}, Title: {ticket.Title}, User: {ticket.User.UserName}");
             }
             Console.WriteLine("Tickets by Tag ID:");
-            //var ticketsByTagId = ticketService.GetTicketsByTagId(bug.TagId);
-            //foreach (var ticket in ticketsByTagId)
-            //{
-            //    Console.WriteLine($"Ticket ID: {ticket.TicketId}, Title: {ticket.Title}, Tags: {string.Join(", ", ticket.TicketTags.Select(tt => tt.Tag.Name))}");
-            //}
-            //Console.WriteLine("Tickets with Users and Tags:");
-            //var ticketsWithUsersAndTags = ticketService.GetTicketsWithUsersAndTags();
-            //foreach (var ticket in ticketsWithUsersAndTags)
-            //{
-            //    Console.WriteLine(ticket); // this will call ToString() of the anonymous type
-            //}
+            var ticketsByTagId = ticketService.GetTicketsByTagId(bug.TagId);
+            foreach (var ticket in ticketsByTagId)
+            {
+                Console.WriteLine($"Ticket ID: {ticket.TicketId}, Title: {ticket.Title}, Tags: {string.Join(", ", ticket.TicketTags.Select(tt => tt.Tag.Name))}");
+            }
+            Console.WriteLine("Tickets with Users and Tags:");
+            var ticketsWithUsersAndTags = ticketService.GetTicketsWithUsersAndTags();
+            foreach (var ticket in ticketsWithUsersAndTags)
+            {
+                Console.WriteLine(ticket); // this will call ToString() of the anonymous type
+            }
 
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();

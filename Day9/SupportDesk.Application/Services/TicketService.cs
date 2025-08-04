@@ -37,7 +37,9 @@ namespace SupportDesk.Application.Services
         public List<Ticket> GetTicketsWithTags()
         {
             return _context.Tickets
-                .Include(t => t.Tags)
+                .Include(t => t.User)
+                .Include(t => t.TicketTags)
+                    .ThenInclude(tt => tt.Tag)
                 .ToList();
         }
 
@@ -49,20 +51,35 @@ namespace SupportDesk.Application.Services
                 .ToList();
         }
 
+        //public List<(string TagName, int TicketCount)> GetTagTicketCount()
+        //{
+        //    return _context.Tags
+        //        .Select(tag => new 
+        //        {
+        //            TagName = tag.Name,
+        //            TicketCount = tag.Tickets.Count
+        //        })
+        //        .AsEnumerable()
+        //        .Select(x => (x.TagName, x.TicketCount))
+        //        .ToList();
+
+        //}
+
         public List<(string TagName, int TicketCount)> GetTagTicketCount()
         {
             return _context.Tags
-                .Select(tag => new 
+                .Include(tag => tag.TicketTags)
+                .Select(tag => new
                 {
                     TagName = tag.Name,
-                    TicketCount = tag.Tickets.Count
+                    TicketCount = tag.TicketTags.Count
                 })
                 .AsEnumerable()
                 .Select(x => (x.TagName, x.TicketCount))
                 .ToList();
-
         }
-        
+
+
         public List<(string TagName, int TicketCount)> GetTicketCountsByUsers()
         {
             return _context.Users
@@ -86,23 +103,28 @@ namespace SupportDesk.Application.Services
         public List<Ticket> GetTicketsByTagId(int tagId)
         {
             return _context.Tickets
-                .Where(t => t.Tags.Any(tag => tag.TagId == tagId))
+                .Include(t => t.TicketTags)
+                    .ThenInclude(tt => tt.Tag)
+                .Where(t => t.TicketTags.Any(tt => tt.TagId == tagId))
                 .ToList();
         }
+
         public List<object> GetTicketsWithUsersAndTags()
         {
             return _context.Tickets
                 .Include(t => t.User)
-                .Include(t => t.Tags)
-                .Select(t => new 
+                .Include(t => t.TicketTags)
+                    .ThenInclude(tt => tt.Tag)
+                .Select(t => new
                 {
                     TicketId = t.TicketId,
                     Title = t.Title,
                     UserName = t.User.UserName,
-                    Tags = t.Tags.Select(tag => tag.Name).ToList()
+                    Tags = t.TicketTags.Select(tt => tt.Tag.Name).ToList()
                 })
                 .ToList<object>();
         }
+
 
 
 

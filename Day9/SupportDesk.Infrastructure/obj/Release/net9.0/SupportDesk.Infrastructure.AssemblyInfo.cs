@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SupportDesk.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+02614d432ee8688ede890b43bed0af5b220fa3d5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+38f398747b97fa9a8170573ddbca6f1faa1ffa01")]
 [assembly: System.Reflection.AssemblyProductAttribute("SupportDesk.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SupportDesk.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

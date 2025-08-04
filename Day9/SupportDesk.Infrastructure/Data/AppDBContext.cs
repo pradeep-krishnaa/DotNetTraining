@@ -29,9 +29,9 @@ namespace SupportDesk.Infrastructure.Data
                 .WithMany(t => t.TicketTags)
                 .HasForeignKey(tt => tt.TicketId);
 
-            modelBuilder.Entity<TicketTag>()
-                .HasOne(tt => tt.Tag)
-                .WithMany(t => t.TicketTags)
+            modelBuilder.Entity<Tag>()
+                .HasMany(t => t.TicketTags)
+                .WithOne(tt => tt.Tag)
                 .HasForeignKey(tt => tt.TagId);
 
         }
