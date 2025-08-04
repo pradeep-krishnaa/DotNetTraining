@@ -1,0 +1,12 @@
+C:\Users\pradkris\source\repos\DotNetTraining\Day9\SupportDesk.Core\bin\Debug\net9.0\SupportDesk.Core.deps.json
+C:\Users\pradkris\source\repos\DotNetTraining\Day9\SupportDesk.Core\bin\Debug\net9.0\SupportDesk.Core.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day9\SupportDesk.Core\bin\Debug\net9.0\SupportDesk.Core.pdb
+C:\Users\pradkris\source\repos\DotNetTraining\Day9\SupportDesk.Core\obj\Debug\net9.0\SupportDesk.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pradkris\source\repos\DotNetTraining\Day9\SupportDesk.Core\obj\Debug\net9.0\SupportDesk.Core.AssemblyInfoInputs.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Day9\SupportDesk.Core\obj\Debug\net9.0\SupportDesk.Core.AssemblyInfo.cs
+C:\Users\pradkris\source\repos\DotNetTraining\Day9\SupportDesk.Core\obj\Debug\net9.0\SupportDesk.Core.csproj.CoreCompileInputs.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Day9\SupportDesk.Core\obj\Debug\net9.0\SupportDesk.Core.sourcelink.json
+C:\Users\pradkris\source\repos\DotNetTraining\Day9\SupportDesk.Core\obj\Debug\net9.0\SupportDesk.Core.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day9\SupportDesk.Core\obj\Debug\net9.0\refint\SupportDesk.Core.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day9\SupportDesk.Core\obj\Debug\net9.0\SupportDesk.Core.pdb
+C:\Users\pradkris\source\repos\DotNetTraining\Day9\SupportDesk.Core\obj\Debug\net9.0\ref\SupportDesk.Core.dll
