@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "BugStatsDashboard.Infrastructure/1.0.0": {
+        "dependencies": {
+          "BugStatsDashboard.Core": "1.0.0"
+        },
+        "runtime": {
+          "BugStatsDashboard.Infrastructure.dll": {}
+        }
+      },
+      "BugStatsDashboard.Core/1.0.0": {
+        "runtime": {
+          "BugStatsDashboard.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BugStatsDashboard.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BugStatsDashboard.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

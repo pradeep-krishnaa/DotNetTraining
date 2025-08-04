@@ -1,0 +1,15 @@
+C:\Users\pradkris\source\repos\DotNetTraining\Day10\BugStatsDashboardV2\BugStatsDashboard.Core\bin\Debug\net8.0\BugStatsDashboard.Core.exe
+C:\Users\pradkris\source\repos\DotNetTraining\Day10\BugStatsDashboardV2\BugStatsDashboard.Core\bin\Debug\net8.0\BugStatsDashboard.Core.deps.json
+C:\Users\pradkris\source\repos\DotNetTraining\Day10\BugStatsDashboardV2\BugStatsDashboard.Core\bin\Debug\net8.0\BugStatsDashboard.Core.runtimeconfig.json
+C:\Users\pradkris\source\repos\DotNetTraining\Day10\BugStatsDashboardV2\BugStatsDashboard.Core\bin\Debug\net8.0\BugStatsDashboard.Core.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day10\BugStatsDashboardV2\BugStatsDashboard.Core\bin\Debug\net8.0\BugStatsDashboard.Core.pdb
+C:\Users\pradkris\source\repos\DotNetTraining\Day10\BugStatsDashboardV2\BugStatsDashboard.Core\obj\Debug\net8.0\BugStatsDashboard.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pradkris\source\repos\DotNetTraining\Day10\BugStatsDashboardV2\BugStatsDashboard.Core\obj\Debug\net8.0\BugStatsDashboard.Core.AssemblyInfoInputs.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Day10\BugStatsDashboardV2\BugStatsDashboard.Core\obj\Debug\net8.0\BugStatsDashboard.Core.AssemblyInfo.cs
+C:\Users\pradkris\source\repos\DotNetTraining\Day10\BugStatsDashboardV2\BugStatsDashboard.Core\obj\Debug\net8.0\BugStatsDashboard.Core.csproj.CoreCompileInputs.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Day10\BugStatsDashboardV2\BugStatsDashboard.Core\obj\Debug\net8.0\BugStatsDashboard.Core.sourcelink.json
+C:\Users\pradkris\source\repos\DotNetTraining\Day10\BugStatsDashboardV2\BugStatsDashboard.Core\obj\Debug\net8.0\BugStatsDashboard.Core.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day10\BugStatsDashboardV2\BugStatsDashboard.Core\obj\Debug\net8.0\refint\BugStatsDashboard.Core.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day10\BugStatsDashboardV2\BugStatsDashboard.Core\obj\Debug\net8.0\BugStatsDashboard.Core.pdb
+C:\Users\pradkris\source\repos\DotNetTraining\Day10\BugStatsDashboardV2\BugStatsDashboard.Core\obj\Debug\net8.0\BugStatsDashboard.Core.genruntimeconfig.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Day10\BugStatsDashboardV2\BugStatsDashboard.Core\obj\Debug\net8.0\ref\BugStatsDashboard.Core.dll
