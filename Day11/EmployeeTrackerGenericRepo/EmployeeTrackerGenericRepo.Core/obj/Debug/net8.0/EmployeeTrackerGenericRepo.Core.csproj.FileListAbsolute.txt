@@ -1,0 +1,15 @@
+C:\Users\pradkris\source\repos\DotNetTraining\Day11\EmployeeTrackerGenericRepo\EmployeeTrackerGenericRepo.Core\bin\Debug\net8.0\EmployeeTrackerGenericRepo.Core.exe
+C:\Users\pradkris\source\repos\DotNetTraining\Day11\EmployeeTrackerGenericRepo\EmployeeTrackerGenericRepo.Core\bin\Debug\net8.0\EmployeeTrackerGenericRepo.Core.deps.json
+C:\Users\pradkris\source\repos\DotNetTraining\Day11\EmployeeTrackerGenericRepo\EmployeeTrackerGenericRepo.Core\bin\Debug\net8.0\EmployeeTrackerGenericRepo.Core.runtimeconfig.json
+C:\Users\pradkris\source\repos\DotNetTraining\Day11\EmployeeTrackerGenericRepo\EmployeeTrackerGenericRepo.Core\bin\Debug\net8.0\EmployeeTrackerGenericRepo.Core.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day11\EmployeeTrackerGenericRepo\EmployeeTrackerGenericRepo.Core\bin\Debug\net8.0\EmployeeTrackerGenericRepo.Core.pdb
+C:\Users\pradkris\source\repos\DotNetTraining\Day11\EmployeeTrackerGenericRepo\EmployeeTrackerGenericRepo.Core\obj\Debug\net8.0\EmployeeTrackerGenericRepo.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pradkris\source\repos\DotNetTraining\Day11\EmployeeTrackerGenericRepo\EmployeeTrackerGenericRepo.Core\obj\Debug\net8.0\EmployeeTrackerGenericRepo.Core.AssemblyInfoInputs.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Day11\EmployeeTrackerGenericRepo\EmployeeTrackerGenericRepo.Core\obj\Debug\net8.0\EmployeeTrackerGenericRepo.Core.AssemblyInfo.cs
+C:\Users\pradkris\source\repos\DotNetTraining\Day11\EmployeeTrackerGenericRepo\EmployeeTrackerGenericRepo.Core\obj\Debug\net8.0\EmployeeTrackerGenericRepo.Core.csproj.CoreCompileInputs.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Day11\EmployeeTrackerGenericRepo\EmployeeTrackerGenericRepo.Core\obj\Debug\net8.0\EmployeeTrackerGenericRepo.Core.sourcelink.json
+C:\Users\pradkris\source\repos\DotNetTraining\Day11\EmployeeTrackerGenericRepo\EmployeeTrackerGenericRepo.Core\obj\Debug\net8.0\EmployeeTrackerGenericRepo.Core.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day11\EmployeeTrackerGenericRepo\EmployeeTrackerGenericRepo.Core\obj\Debug\net8.0\refint\EmployeeTrackerGenericRepo.Core.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day11\EmployeeTrackerGenericRepo\EmployeeTrackerGenericRepo.Core\obj\Debug\net8.0\EmployeeTrackerGenericRepo.Core.pdb
+C:\Users\pradkris\source\repos\DotNetTraining\Day11\EmployeeTrackerGenericRepo\EmployeeTrackerGenericRepo.Core\obj\Debug\net8.0\EmployeeTrackerGenericRepo.Core.genruntimeconfig.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Day11\EmployeeTrackerGenericRepo\EmployeeTrackerGenericRepo.Core\obj\Debug\net8.0\ref\EmployeeTrackerGenericRepo.Core.dll
