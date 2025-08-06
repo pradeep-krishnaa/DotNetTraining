@@ -1,0 +1,15 @@
+C:\Users\pradkris\source\repos\DotNetTraining\Day13\EmployeeTrackerAutoMapper\EmployeeTrackerAutoMapper.Core\bin\Debug\net8.0\EmployeeTrackerAutoMapper.Core.exe
+C:\Users\pradkris\source\repos\DotNetTraining\Day13\EmployeeTrackerAutoMapper\EmployeeTrackerAutoMapper.Core\bin\Debug\net8.0\EmployeeTrackerAutoMapper.Core.deps.json
+C:\Users\pradkris\source\repos\DotNetTraining\Day13\EmployeeTrackerAutoMapper\EmployeeTrackerAutoMapper.Core\bin\Debug\net8.0\EmployeeTrackerAutoMapper.Core.runtimeconfig.json
+C:\Users\pradkris\source\repos\DotNetTraining\Day13\EmployeeTrackerAutoMapper\EmployeeTrackerAutoMapper.Core\bin\Debug\net8.0\EmployeeTrackerAutoMapper.Core.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day13\EmployeeTrackerAutoMapper\EmployeeTrackerAutoMapper.Core\bin\Debug\net8.0\EmployeeTrackerAutoMapper.Core.pdb
+C:\Users\pradkris\source\repos\DotNetTraining\Day13\EmployeeTrackerAutoMapper\EmployeeTrackerAutoMapper.Core\obj\Debug\net8.0\EmployeeTrackerAutoMapper.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pradkris\source\repos\DotNetTraining\Day13\EmployeeTrackerAutoMapper\EmployeeTrackerAutoMapper.Core\obj\Debug\net8.0\EmployeeTrackerAutoMapper.Core.AssemblyInfoInputs.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Day13\EmployeeTrackerAutoMapper\EmployeeTrackerAutoMapper.Core\obj\Debug\net8.0\EmployeeTrackerAutoMapper.Core.AssemblyInfo.cs
+C:\Users\pradkris\source\repos\DotNetTraining\Day13\EmployeeTrackerAutoMapper\EmployeeTrackerAutoMapper.Core\obj\Debug\net8.0\EmployeeTrackerAutoMapper.Core.csproj.CoreCompileInputs.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Day13\EmployeeTrackerAutoMapper\EmployeeTrackerAutoMapper.Core\obj\Debug\net8.0\EmployeeTrackerAutoMapper.Core.sourcelink.json
+C:\Users\pradkris\source\repos\DotNetTraining\Day13\EmployeeTrackerAutoMapper\EmployeeTrackerAutoMapper.Core\obj\Debug\net8.0\EmployeeTrackerAutoMapper.Core.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day13\EmployeeTrackerAutoMapper\EmployeeTrackerAutoMapper.Core\obj\Debug\net8.0\refint\EmployeeTrackerAutoMapper.Core.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day13\EmployeeTrackerAutoMapper\EmployeeTrackerAutoMapper.Core\obj\Debug\net8.0\EmployeeTrackerAutoMapper.Core.pdb
+C:\Users\pradkris\source\repos\DotNetTraining\Day13\EmployeeTrackerAutoMapper\EmployeeTrackerAutoMapper.Core\obj\Debug\net8.0\EmployeeTrackerAutoMapper.Core.genruntimeconfig.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Day13\EmployeeTrackerAutoMapper\EmployeeTrackerAutoMapper.Core\obj\Debug\net8.0\ref\EmployeeTrackerAutoMapper.Core.dll

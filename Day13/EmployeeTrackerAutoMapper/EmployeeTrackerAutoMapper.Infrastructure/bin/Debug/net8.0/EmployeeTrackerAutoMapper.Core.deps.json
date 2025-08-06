@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "EmployeeTrackerAutoMapper.Core/1.0.0": {
+        "runtime": {
+          "EmployeeTrackerAutoMapper.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "EmployeeTrackerAutoMapper.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
