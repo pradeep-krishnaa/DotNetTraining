@@ -1,0 +1,595 @@
+Week3 Assessment - EventEase 
+
+EventCase.Core/Entities/Events.cs
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EventEase.Core.Entities
+{
+    public class Event
+    {
+        public int Id { get; set; }
+        public string Title { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public DateTime Date { get; set; } = DateTime.UtcNow;
+        public string Location { get; set; } = string.Empty;
+    }
+}
+
+EventCase.Core/Entities/User.cs
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EventEase.Core.Entities
+{
+    public class User
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+
+    }
+}
+
+EventCase.Core/Entities/Registration.cs
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EventEase.Core.Entities
+{
+    public class Registration
+    {
+        public int Id { get; set; }
+        public int UserId { get; set; }
+        public User User { get; set; } = new User();
+        public int EventId { get; set; }
+        public Event Event { get; set; } = new Event();
+        public DateTime RegistrationDate { get; set; } = DateTime.UtcNow;
+    
+    }
+}
+
+DTOs for User , Event , Registration - Request and Response DTO was created
+Interfaces for User , event , Registration Repos and Services including IRepository.cs (Generic repo) was created
+
+EventEase.Infrastructure/Repositories/UserRepository.cs
+
+using EventEase.Core.Entities;
+using EventEase.Core.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EventEase.Infrastructure.Repositories
+{
+    public class UserRepository : IUserRepository
+
+    {
+        private readonly List<User> _users = new List<User>();
+        public int _nextId = 1;
+        public List<User> GetAll()
+        {
+            return _users;
+        }
+        public User GetById(int id)
+        {
+            return _users.FirstOrDefault(u => u.Id == id);
+        }
+        public void Add(User entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            entity.Id = _nextId++;
+            _users.Add(entity);
+        }
+        public void Update(User entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            var existingUser = GetById(entity.Id);
+            if (existingUser == null) throw new KeyNotFoundException($"User with ID {entity.Id} not found");
+            existingUser.Name = entity.Name;
+            existingUser.Email = entity.Email;
+
+        }
+        public void Delete(User entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            var existingUser = GetById(entity.Id);
+            if (existingUser == null) throw new KeyNotFoundException($"User with ID {entity.Id} not found");
+            _users.Remove(existingUser);
+        }
+
+    }
+}
+EventEase.Infrastructure/Repositories/EventRepository.cs
+
+using EventEase.Core.Entities;
+using EventEase.Core.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EventEase.Infrastructure.Repositories
+{
+    public class EventRepository : IEventRepository
+    {
+        private readonly List<Event> _events = new List<Event>();
+        public int _nextId = 1;
+        public List<Event> GetAll()
+        {
+            return _events;
+        }
+        public Event GetById(int id)
+        {
+            return _events.FirstOrDefault(e => e.Id == id);
+        }
+        public void Add(Event entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            entity.Id = _nextId++;
+            _events.Add(entity);
+        }
+        public void Update(Event entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            var existingEvent = GetById(entity.Id);
+            if (existingEvent == null) throw new KeyNotFoundException($"Event with ID {entity.Id} not found");
+            existingEvent.Title = entity.Title;
+            existingEvent.Description = entity.Description;
+            existingEvent.Date = entity.Date;
+            existingEvent.Location = entity.Location;
+
+        }
+        public void Delete(Event entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            var existingEvent = GetById(entity.Id);
+            if (existingEvent == null) throw new KeyNotFoundException($"Event with ID {entity.Id} not found");
+            _events.Remove(existingEvent);
+        }
+    }
+}
+
+EventEase.Infrastructure/Repositories/RegistrationRepository.cs
+
+using EventEase.Core.Entities;
+using EventEase.Core.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EventEase.Infrastructure.Repositories
+{
+    public class RegistrationRepository : IRegistrationRepository
+    {
+        private readonly List<Registration> _registrations = new List<Registration>();
+        public int _nextid = 1;
+        public List<Registration> GetAll()
+        {
+            return _registrations;
+        }
+        public Registration GetById(int id)
+        {
+            return _registrations.FirstOrDefault(r => r.Id == id);
+        }
+        public void Add(Registration entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            entity.Id = _nextid++;
+            _registrations.Add(entity);
+        }
+        public void Update(Registration entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            var existingRegistration = GetById(entity.Id);
+            if (existingRegistration == null) throw new KeyNotFoundException($"Registration with ID {entity.Id} not found");
+            existingRegistration.UserId = entity.UserId;
+            existingRegistration.EventId = entity.EventId;
+            existingRegistration.RegistrationDate = entity.RegistrationDate;
+
+
+
+        }
+        public void Delete(Registration entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            var existingRegistration = GetById(entity.Id);
+            if (existingRegistration == null) throw new KeyNotFoundException($"Registration with ID {entity.Id} not found");
+            _registrations.Remove(existingRegistration);
+        }
+
+        public List<Registration> GetRegistrationsByEventId(int id)
+        {
+            List<Registration> registrations = new List<Registration>();
+            foreach(var registration in _registrations)
+            {
+                if(registration.EventId==id)
+                {
+                    registrations.Add(registration);
+                }
+            }
+            return registrations;
+        }
+    }
+}
+
+EventEase.Application/Services/UserService.cs
+
+using EventEase.Core.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using AutoMapper;
+using EventEase.Core.DTOs;
+using EventEase.Core.Entities;
+
+namespace EventEase.Application.Services
+{
+    public class UserService : IUserService
+    {
+        private readonly IUserRepository _userRepository;
+        private readonly IMapper _mapper;
+        //public int _nextUserId = 1; 
+        public UserService(IUserRepository userRepository, IMapper mapper)
+        {
+            _userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+        }
+        public void CreateUser(UserRequestDTO userRequestDTO)
+        {
+            if (userRequestDTO == null) throw new ArgumentNullException(nameof(userRequestDTO));
+            var user = _mapper.Map<User>(userRequestDTO);
+            _userRepository.Add(user);
+        }
+        public void UpdateUser(int userId, UserRequestDTO userRequestDTO)
+        {
+            if (userRequestDTO == null) throw new ArgumentNullException(nameof(userRequestDTO));
+            var existingUser = _userRepository.GetById(userId);
+            if (existingUser == null) throw new KeyNotFoundException($"User with ID {userId} not found");
+            var user = _mapper.Map(userRequestDTO, existingUser);
+            _userRepository.Update(user);
+        }
+        public void DeleteUser(int userId)
+        {
+            var user = _userRepository.GetById(userId);
+            if (user == null) throw new KeyNotFoundException($"User with ID {userId} not found");
+            _userRepository.Delete(user);
+        }
+        public UserResponseDTO GetUserById(int userId)
+        {
+            var user = _userRepository.GetById(userId);
+            if (user == null) throw new KeyNotFoundException($"User with ID {userId} not found");
+            return _mapper.Map<UserResponseDTO>(user);
+        }
+        public List<UserResponseDTO> GetAllUsers()
+        {
+            var users = _userRepository.GetAll();
+            return _mapper.Map<List<UserResponseDTO>>(users);
+
+        }
+    }
+}
+
+EventEase.Application/Services/EventService.cs
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using EventEase.Core.DTOs;
+using EventEase.Core.Entities;
+using EventEase.Core.Interfaces;
+using AutoMapper;
+
+namespace EventEase.Application.Services
+{
+    public class EventService  : IEventService
+    {
+        private readonly IEventRepository _eventRepository;
+        private readonly IMapper _mapper;
+        //public int _eventId = 1;
+        public EventService(IEventRepository eventRepository, IMapper mapper)
+        {
+            _eventRepository = eventRepository ?? throw new ArgumentNullException(nameof(eventRepository));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+        }
+        public void CreateEvent(EventRequestDTO eventRequestDTO)
+        {
+            if (eventRequestDTO == null) throw new ArgumentNullException(nameof(eventRequestDTO));
+            var eventEntity = _mapper.Map<Event>(eventRequestDTO);
+            //eventEntity.Id = _eventId++; 
+            _eventRepository.Add(eventEntity);
+        }
+        public void UpdateEvent(int eventId, EventRequestDTO eventRequestDTO)
+        {
+            if (eventRequestDTO == null) throw new ArgumentNullException(nameof(eventRequestDTO));
+            var existingEvent = _eventRepository.GetById(eventId);
+            if (existingEvent == null) throw new KeyNotFoundException($"Event with ID {eventId} not found");
+            var updatedEvent = _mapper.Map(eventRequestDTO, existingEvent);
+            _eventRepository.Update(updatedEvent);
+        }
+        public void DeleteEvent(int eventId)
+        {
+            var existingEvent = _eventRepository.GetById(eventId);
+            if (existingEvent == null) throw new KeyNotFoundException($"Event with ID {eventId} not found");
+            _eventRepository.Delete(existingEvent);
+        }
+        public EventResponseDTO GetEventById(int eventId)
+        {
+            var existingEvent = _eventRepository.GetById(eventId);
+            if (existingEvent == null) throw new KeyNotFoundException($"Event with ID {eventId} not found");
+            return _mapper.Map<EventResponseDTO>(existingEvent);
+        }
+        public List<EventResponseDTO> GetAllEvents()
+        {
+            var events = _eventRepository.GetAll();
+            return _mapper.Map<List<EventResponseDTO>>(events);
+        }
+    }
+}
+
+EventEase.Application/Services/RegistrationService.cs
+
+using AutoMapper;
+using EventEase.Core.DTOs;
+using EventEase.Core.Entities;
+using EventEase.Core.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EventEase.Application.Services
+{
+    public class RegistrationService : IRegistrationService
+    {
+        private readonly IRegistrationRepository _registrationRepository;
+        private readonly IMapper _mapper;
+        //public int _registrationId = 1;
+        public RegistrationService(IRegistrationRepository registrationRepository, IMapper mapper)
+        {
+            _registrationRepository = registrationRepository ?? throw new ArgumentNullException(nameof(registrationRepository));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+        }
+        public void RegisterUserForEvent(RegistrationRequestDTO registrationsRequestDTO)
+        {
+            if (registrationsRequestDTO == null) throw new ArgumentNullException(nameof(registrationsRequestDTO));
+            var registration = _mapper.Map<Registration>(registrationsRequestDTO);
+            //registration.Id = _registrationId++; 
+            _registrationRepository.Add(registration);
+        }
+        public void UpdateRegistration(int registrationId, RegistrationRequestDTO registrationsRequestDTO)
+        {
+            if (registrationsRequestDTO == null) throw new ArgumentNullException(nameof(registrationsRequestDTO));
+            var existingRegistration = _registrationRepository.GetById(registrationId);
+            if (existingRegistration == null) throw new KeyNotFoundException($"Registration with ID {registrationId} not found");
+            var updatedRegistration = _mapper.Map<Registration>(registrationsRequestDTO);
+            updatedRegistration.Id = registrationId; // Ensure the ID is set correctly
+            _registrationRepository.Update(updatedRegistration);
+        }
+        public void DeleteRegistration(int registrationId)
+        {
+            var existingRegistration = _registrationRepository.GetById(registrationId);
+            if (existingRegistration == null) throw new KeyNotFoundException($"Registration with ID {registrationId} not found");
+            _registrationRepository.Delete(existingRegistration);
+        }
+        public RegistrationResponseDTO GetRegistrationById(int registrationId)
+        {
+            var registration = _registrationRepository.GetById(registrationId);
+            if (registration == null) throw new KeyNotFoundException($"Registration with ID {registrationId} not found");
+            return _mapper.Map<RegistrationResponseDTO>(registration);
+        }
+        public List<RegistrationResponseDTO> GetAllRegistrations()
+        {
+            var registrations = _registrationRepository.GetAll();
+            return _mapper.Map<List<RegistrationResponseDTO>>(registrations);
+        }
+        public List<RegistrationResponseDTO> GetRegistrationsByEventId(int id)
+        {
+            var registrations = _registrationRepository.GetRegistrationsByEventId(id);
+            return _mapper.Map<List<RegistrationResponseDTO>>(registrations);
+        }
+
+
+        
+    }
+}
+
+EventEase.Application/Mapping/MappingProfile.cs
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime;
+using System.Text;
+using System.Threading.Tasks;
+using AutoMapper;
+using EventEase.Core.DTOs;
+using EventEase.Core.Entities;
+
+namespace EventEase.Application.Mapping
+{
+    public class MappingProfile : Profile
+    {
+        public MappingProfile()
+        {
+            CreateMap<User , UserRequestDTO>().ReverseMap();
+            CreateMap<User, UserResponseDTO>();
+            CreateMap<Event , EventRequestDTO>().ReverseMap();
+            CreateMap<Registration, RegistrationRequestDTO>().ReverseMap();
+            CreateMap<Registration, RegistrationResponseDTO>();
+            CreateMap<Event, EventResponseDTO>();
+        }
+
+    }
+}
+
+
+EventEase.API/Controller/UserController.cs
+
+using EventEase.Core.DTOs;
+using EventEase.Core.Interfaces;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace EventEase.API.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class UserController : ControllerBase
+    {
+        private readonly IUserService _userService;
+        public UserController(IUserService userService)
+        {
+            _userService = userService;
+        }
+        [HttpGet]
+        public IActionResult GetAllUsers()
+        {
+
+            //create 2 users
+            _userService.CreateUser(new UserRequestDTO { Name = "John Doe", Email = "xx@gmail.com" });
+            _userService.CreateUser(new UserRequestDTO { Name = "Jane Smith", Email = "yy@gmail.com" });
+            var users = _userService.GetAllUsers();
+            return Ok(users);
+        }
+        [HttpGet("{id}")]
+        public IActionResult GetUser(int id)
+        {
+            var user = _userService.GetUserById(id);
+            if (user == null)
+            {
+                return NotFound($"User with ID {id} not found.");
+            }
+            return Ok(user);
+        }
+
+    }
+}
+
+EventEase.API/Controller/EventController.cs
+
+using EventEase.Core.DTOs;
+using EventEase.Core.Interfaces;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace EventEase.API.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EventController : ControllerBase
+    {
+        private readonly IEventService _eventService;
+        public EventController(IEventService eventService)
+        {
+
+            _eventService = eventService;
+        }
+
+        [HttpGet]
+        public IActionResult GetAllEvents()
+        {
+            _eventService.CreateEvent(new EventRequestDTO { Title = "Event A", Description = "Event A Descrioption", Location = "Sample Location" });
+            _eventService.CreateEvent(new EventRequestDTO { Title = "Event B", Description = "Event B Descrioption", Location = "Sample Location" });
+            var events = _eventService.GetAllEvents();
+            return Ok(events);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetEventById(int id)
+        {
+            var eventResponse = _eventService.GetEventById(id);
+            if (eventResponse == null)
+            {
+                return NotFound($"Event with ID {id} not found.");
+            }
+            return Ok(eventResponse);
+        }
+
+    }
+}
+
+EventEase.API/Controller/RegistrationController.cs
+
+using EventEase.Core.DTOs;
+using EventEase.Core.Interfaces;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace EventEase.API.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class RegistrationController : ControllerBase
+    {
+        private readonly IRegistrationService _registrationService;
+        private readonly IUserService _userService;
+        private readonly IEventService _eventService;
+        public RegistrationController(IRegistrationService registrationService , IUserService userService , IEventService eventService)
+        {
+            _registrationService = registrationService;
+            _userService = userService;
+            _eventService = eventService;
+
+        }
+
+        [HttpGet]
+        public IActionResult GetAllRegistrations()
+        {
+            _registrationService.RegisterUserForEvent(new RegistrationRequestDTO{ UserId = 1 , EventId = 1 });
+            var registrations = _registrationService.GetAllRegistrations();
+            return Ok(registrations);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetRegistrationById(int id)
+        {
+            var registration = _registrationService.GetRegistrationById(id);
+            return Ok(registration);
+        }
+        [HttpGet("event/{eventId}")]
+        public IActionResult GetRegistrationsByEvent(int eventId)
+        {
+            var registrations = _registrationService.GetRegistrationsByEventId(eventId);
+
+            if (registrations == null || !registrations.Any())
+                return NotFound($"No registrations found for event ID {eventId}");
+
+            return Ok(registrations);
+        }
+    }
+    
+
+}
+
+
+
+
+
+
+
+
+
+
