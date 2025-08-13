@@ -53,10 +53,18 @@ namespace Hostel.Application.Services
 
         public async Task UpdateStudentAsync(int id , StudentRequestDTO studentRequestDTO)
         {
-            var student = _mapper.Map<Student>(studentRequestDTO);
-            student.StudentId = id;
-            await _studentrepo.UpdateAsync(student);
+            var existingStudent = await _studentrepo.GetByIdAsync(id);
+            if (existingStudent == null)
+            {
+                throw new KeyNotFoundException($"Student with ID {id} not found.");
+            }
 
+            // Update only the fields from DTO
+            existingStudent.StudentName = studentRequestDTO.StudentName;
+            existingStudent.StudentDepartment = studentRequestDTO.StudentDepartment;
+
+            // RoomId stays unchanged unless you have logic to reassign
+            await _studentrepo.UpdateAsync(existingStudent);
 
         }
         public async Task DeleteStudentAsync(int id)

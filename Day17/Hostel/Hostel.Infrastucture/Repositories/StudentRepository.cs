@@ -29,22 +29,26 @@ namespace Hostel.Infrastructure.Repositories
             return await _context.Students.FindAsync(id);
         }
 
-        public Task UpdateAsync(Student student)
+        public async Task UpdateAsync(Student student)
         {
             _context.Update(student);
-            return _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
         }
 
-        public Task AddAsync(Student student)
+        public async Task AddAsync(Student student)
         {
             _context.Students.Add(student);
-            return _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
         }
 
-        public Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            _context.Remove(id);
-            return _context.SaveChangesAsync();
+            var student = _context.Students.Find(id);
+            if (student != null)
+            {
+                _context.Students.Remove(student);
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }
