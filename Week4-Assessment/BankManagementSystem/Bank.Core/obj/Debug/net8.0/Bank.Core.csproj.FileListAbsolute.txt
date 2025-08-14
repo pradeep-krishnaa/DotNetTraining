@@ -1,0 +1,12 @@
+C:\Users\pradkris\source\repos\DotNetTraining\Week4-Assessment\BankManagementSystem\Bank.Core\bin\Debug\net8.0\Bank.Core.deps.json
+C:\Users\pradkris\source\repos\DotNetTraining\Week4-Assessment\BankManagementSystem\Bank.Core\bin\Debug\net8.0\Bank.Core.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Week4-Assessment\BankManagementSystem\Bank.Core\bin\Debug\net8.0\Bank.Core.pdb
+C:\Users\pradkris\source\repos\DotNetTraining\Week4-Assessment\BankManagementSystem\Bank.Core\obj\Debug\net8.0\Bank.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pradkris\source\repos\DotNetTraining\Week4-Assessment\BankManagementSystem\Bank.Core\obj\Debug\net8.0\Bank.Core.AssemblyInfoInputs.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Week4-Assessment\BankManagementSystem\Bank.Core\obj\Debug\net8.0\Bank.Core.AssemblyInfo.cs
+C:\Users\pradkris\source\repos\DotNetTraining\Week4-Assessment\BankManagementSystem\Bank.Core\obj\Debug\net8.0\Bank.Core.csproj.CoreCompileInputs.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Week4-Assessment\BankManagementSystem\Bank.Core\obj\Debug\net8.0\Bank.Core.sourcelink.json
+C:\Users\pradkris\source\repos\DotNetTraining\Week4-Assessment\BankManagementSystem\Bank.Core\obj\Debug\net8.0\Bank.Core.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Week4-Assessment\BankManagementSystem\Bank.Core\obj\Debug\net8.0\refint\Bank.Core.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Week4-Assessment\BankManagementSystem\Bank.Core\obj\Debug\net8.0\Bank.Core.pdb
+C:\Users\pradkris\source\repos\DotNetTraining\Week4-Assessment\BankManagementSystem\Bank.Core\obj\Debug\net8.0\ref\Bank.Core.dll
