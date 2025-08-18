@@ -8,7 +8,7 @@ namespace Bank.Core.DTOs
 {
     public class AccountRequestDTO
     {
-        public double Balance { get; set; }
+        public decimal InitialDeposit { get; set; }
         public int CustomerId { get; set; }
     }
 }

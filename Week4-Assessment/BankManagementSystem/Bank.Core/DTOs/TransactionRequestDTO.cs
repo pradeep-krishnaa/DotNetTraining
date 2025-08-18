@@ -10,6 +10,8 @@ namespace Bank.Core.DTOs
     {
         public int AccountId { get; set; }
         public decimal Amount { get; set; }
-        public string Type { get; set; } // "Deposit", "Withdrawal"
+        public string Type { get; set; } // "Deposit", "Withdrawal" , "Transfer"
+        public int? TragetAccountId { get; set; } //for transfer , can be null
+
     }
 }

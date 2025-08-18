@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bank.Core.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace Bank.Core.Interfaces
 {
-    public class ITransactionService
+    public interface ITransactionService
     {
+        Task<List<TransactionResponseDTO>> GetAllAsync();
+        Task<TransactionResponseDTO?> GetByIdAsync(int id);
+        Task AddAsync(TransactionRequestDTO dto);
+        Task DeleteAsync(int id);
     }
 }

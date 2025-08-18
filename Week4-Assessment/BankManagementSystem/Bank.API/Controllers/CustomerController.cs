@@ -9,49 +9,47 @@ namespace Bank.API.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        private readonly ICustomerService _customerService;
+        private readonly ICustomerService _service;
 
-        public CustomerController(ICustomerService customerService)
+        public CustomerController(ICustomerService service)
         {
-            _customerService = customerService;
+            _service = service;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllCustomers()
+        public async Task<IActionResult> GetAll()
         {
-            var customers = await _customerService.GetAllCustomersAsync();
+            var customers = await _service.GetAllCustomersAsync();
             return Ok(customers);
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetCustomerById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var customer = await _customerService.GetCustomerByIdAsync(id);
-            if (customer == null)
-                return NotFound();
-
+            var customer = await _service.GetCustomerByIdAsync(id);
+            if (customer == null) return NotFound();
             return Ok(customer);
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddCustomer([FromBody] CustomerRequestDTO customerDto)
+        public async Task<IActionResult> Add(CustomerRequestDTO dto)
         {
-            await _customerService.AddCustomerAsync(customerDto);
-            return StatusCode(200, new { Message = "Customer Created Successfully" });
+            await _service.AddCustomerAsync(dto);
+            return Ok("Customer created successfully");
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCustomer(int id, [FromBody] CustomerRequestDTO customerDto)
+        public async Task<IActionResult> Update(int id, CustomerRequestDTO dto)
         {
-            await _customerService.UpdateCustomerAsync(id, customerDto);
-            return StatusCode(200, new { Message = "Customer Updated Successfully" });
+            await _service.UpdateCustomerAsync(id, dto);
+            return Ok("Customer updated successfully");
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCustomer(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            await _customerService.DeleteCustomerAsync(id);
-            return StatusCode(200, new { Message = "Customer Deleted Successfully" });
+            await _service.DeleteCustomerAsync(id);
+            return Ok("Customer deleted successfully");
         }
     }
 }

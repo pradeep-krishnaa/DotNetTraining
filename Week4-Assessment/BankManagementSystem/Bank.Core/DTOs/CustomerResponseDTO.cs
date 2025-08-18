@@ -10,6 +10,5 @@ namespace Bank.Core.DTOs
     {
         public int CustomerId { get; set; }
         public string CustomerName { get; set; }
-        public List<AccountResponseDTO> Accounts { get; set; }
     }
 }

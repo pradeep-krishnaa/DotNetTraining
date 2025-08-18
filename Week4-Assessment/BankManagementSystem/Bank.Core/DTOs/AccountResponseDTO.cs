@@ -9,12 +9,10 @@ namespace Bank.Core.DTOs
     public class AccountResponseDTO
     {
         public int AccountId { get; set; }
-        public double Balance { get; set; }
+        public decimal Balance { get; set; }
 
         public int CustomerId { get; set; }
         public string CustomerName { get; set; }
-
-        public List<TransactionResponseDTO> Transactions { get; set; }
     }
 
 }

@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "Bank.API.Controllers.AccountController",
-    "Method": "GetAllAccounts",
+    "Method": "GetAll",
     "RelativePath": "api/Account",
     "HttpMethod": "GET",
     "IsController": true,
@@ -11,23 +11,7 @@
   },
   {
     "ContainingType": "Bank.API.Controllers.AccountController",
-    "Method": "AddAccount",
-    "RelativePath": "api/Account",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "accountDto",
-        "Type": "Bank.Core.DTOs.AccountRequestDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Bank.API.Controllers.AccountController",
-    "Method": "GetAccountById",
+    "Method": "GetById",
     "RelativePath": "api/Account/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -43,28 +27,7 @@
   },
   {
     "ContainingType": "Bank.API.Controllers.AccountController",
-    "Method": "UpdateAccount",
-    "RelativePath": "api/Account/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "accountDto",
-        "Type": "Bank.Core.DTOs.AccountRequestDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Bank.API.Controllers.AccountController",
-    "Method": "DeleteAccount",
+    "Method": "Delete",
     "RelativePath": "api/Account/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -79,8 +42,92 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Bank.API.Controllers.AccountController",
+    "Method": "Create",
+    "RelativePath": "api/Account/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Bank.Core.DTOs.AccountRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Bank.API.Controllers.AccountController",
+    "Method": "Deposit",
+    "RelativePath": "api/Account/deposit/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "amount",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Bank.API.Controllers.AccountController",
+    "Method": "Transfer",
+    "RelativePath": "api/Account/transfer",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fromId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "toId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "amount",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Bank.API.Controllers.AccountController",
+    "Method": "Withdraw",
+    "RelativePath": "api/Account/withdraw/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "amount",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Bank.API.Controllers.CustomerController",
-    "Method": "GetAllCustomers",
+    "Method": "GetAll",
     "RelativePath": "api/Customer",
     "HttpMethod": "GET",
     "IsController": true,
@@ -90,14 +137,14 @@
   },
   {
     "ContainingType": "Bank.API.Controllers.CustomerController",
-    "Method": "AddCustomer",
+    "Method": "Add",
     "RelativePath": "api/Customer",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "customerDto",
+        "Name": "dto",
         "Type": "Bank.Core.DTOs.CustomerRequestDTO",
         "IsRequired": true
       }
@@ -106,7 +153,7 @@
   },
   {
     "ContainingType": "Bank.API.Controllers.CustomerController",
-    "Method": "GetCustomerById",
+    "Method": "GetById",
     "RelativePath": "api/Customer/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -122,7 +169,7 @@
   },
   {
     "ContainingType": "Bank.API.Controllers.CustomerController",
-    "Method": "UpdateCustomer",
+    "Method": "Update",
     "RelativePath": "api/Customer/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -134,7 +181,7 @@
         "IsRequired": true
       },
       {
-        "Name": "customerDto",
+        "Name": "dto",
         "Type": "Bank.Core.DTOs.CustomerRequestDTO",
         "IsRequired": true
       }
@@ -143,8 +190,66 @@
   },
   {
     "ContainingType": "Bank.API.Controllers.CustomerController",
-    "Method": "DeleteCustomer",
+    "Method": "Delete",
     "RelativePath": "api/Customer/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Bank.API.Controllers.TransactionController",
+    "Method": "GetAll",
+    "RelativePath": "api/Transaction",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Bank.API.Controllers.TransactionController",
+    "Method": "Add",
+    "RelativePath": "api/Transaction",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Bank.Core.DTOs.TransactionRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Bank.API.Controllers.TransactionController",
+    "Method": "GetById",
+    "RelativePath": "api/Transaction/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Bank.API.Controllers.TransactionController",
+    "Method": "Delete",
+    "RelativePath": "api/Transaction/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,

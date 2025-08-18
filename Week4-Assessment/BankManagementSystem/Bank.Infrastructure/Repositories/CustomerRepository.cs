@@ -12,40 +12,38 @@ namespace Bank.Infrastructure.Repositories
 {
     public class CustomerRepository : ICustomerRepository
     {
-        public readonly AppDbContext _context;
+        private readonly AppDbContext _context;
 
         public CustomerRepository(AppDbContext context)
         {
             _context = context;
         }
 
-       
+        public async Task<Customer?> GetByIdAsync(int id)
+        {
+            return await _context.Customers
+                .Include(c => c.Accounts)
+                .ThenInclude(a => a.Transactions)
+                .FirstOrDefaultAsync(c => c.CustomerId == id);
+        }
 
         public async Task<List<Customer>> GetAllAsync()
         {
-            //return await _context.Customers.ToListAsync();
             return await _context.Customers
-                         .Include(c => c.Accounts)
-                         .ToListAsync();
+                .Include(c => c.Accounts)
+                .ThenInclude(a => a.Transactions)
+                .ToListAsync();
         }
 
-        public async Task<Customer?> GetByIdAsync(int id)
+        public async Task AddAsync(Customer entity)
         {
-            //return await _context.Customers.FindAsync(id);
-            return await _context.Customers
-                         .Include(c => c.Accounts)
-                         .FirstOrDefaultAsync(c => c.CustomerId == id);
-        }
-
-        public async Task AddAsync(Customer customer)
-        {
-            _context.Customers.Add(customer);
+            await _context.Customers.AddAsync(entity);
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(Customer customer)
+        public async Task UpdateAsync(Customer entity)
         {
-            _context.Customers.Update(customer);
+            _context.Customers.Update(entity);
             await _context.SaveChangesAsync();
         }
 

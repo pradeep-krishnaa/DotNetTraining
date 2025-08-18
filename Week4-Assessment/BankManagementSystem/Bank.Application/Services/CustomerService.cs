@@ -2,6 +2,7 @@
 using Bank.Core.DTOs;
 using Bank.Core.Entities;
 using Bank.Core.Interfaces;
+using Bank.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,39 +14,52 @@ namespace Bank.Application.Services
     public class CustomerService : ICustomerService
     {
         private readonly ICustomerRepository _customerRepo;
-        private readonly IAccountRepository _accountRepo;
-        private readonly IMapper _mapper;
 
-        public CustomerService(ICustomerRepository customerRepo, IMapper mapper, IAccountRepository accountRepository)
+        public CustomerService(ICustomerRepository customerRepo)
         {
             _customerRepo = customerRepo;
-            _mapper = mapper;
-            _accountRepo = accountRepository;
         }
 
         public async Task<List<CustomerResponseDTO>> GetAllCustomersAsync()
         {
             var customers = await _customerRepo.GetAllAsync();
-            return _mapper.Map<List<CustomerResponseDTO>>(customers);
+            return customers.Select(c => new CustomerResponseDTO
+            {
+                CustomerId = c.CustomerId,
+                CustomerName = c.CustomerName
+            }).ToList();
         }
 
         public async Task<CustomerResponseDTO?> GetCustomerByIdAsync(int id)
         {
             var customer = await _customerRepo.GetByIdAsync(id);
-            return _mapper.Map<CustomerResponseDTO?>(customer);
+            if (customer == null) return null;
+
+            return new CustomerResponseDTO
+            {
+                CustomerId = customer.CustomerId,
+                CustomerName = customer.CustomerName
+            };
         }
 
-        public async Task AddCustomerAsync(CustomerRequestDTO customerDto)
+        public async Task AddCustomerAsync(CustomerRequestDTO dto)
         {
-            var customer = _mapper.Map<Customer>(customerDto);
+            var customer = new Customer
+            {
+                CustomerName = dto.CustomerName
+            };
+
             await _customerRepo.AddAsync(customer);
         }
 
-        public async Task UpdateCustomerAsync(int id, CustomerRequestDTO customerDto)
+        public async Task UpdateCustomerAsync(int id, CustomerRequestDTO dto)
         {
-            var customer = _mapper.Map<Customer>(customerDto);
-            customer.CustomerId = id;
-            await _customerRepo.UpdateAsync(customer);
+            var existing = await _customerRepo.GetByIdAsync(id);
+            if (existing == null) throw new Exception("Customer not found");
+
+            existing.CustomerName = dto.CustomerName;
+
+            await _customerRepo.UpdateAsync(existing);
         }
 
         public async Task DeleteCustomerAsync(int id)

@@ -9,6 +9,6 @@ namespace Bank.Core.Interfaces
 {
     public interface IAccountRepository : IRepository<Account>
     {
-        Task<Account?> GetAccountByCustomerIdAsync(int customerId);
+        //Task<Account?> GetAccountByCustomerIdAsync(int customerId);
     }
 }

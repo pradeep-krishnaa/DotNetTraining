@@ -11,9 +11,10 @@ namespace Bank.Core.Interfaces
     {
         Task<List<AccountResponseDTO>> GetAllAccountsAsync();
         Task<AccountResponseDTO?> GetAccountByIdAsync(int id);
-        Task AddAccountAsync(AccountRequestDTO account);
-        Task UpdateAccountAsync(int id, AccountRequestDTO account);
-        Task DeleteAccountAsync(int id);
-        Task<AccountResponseDTO?> GetAccountByCustomerIdAsync(int customerId);
+        Task CreateAccountAsync(AccountRequestDTO dto);
+        Task DepositAsync(int accountId, decimal amount);
+        Task WithdrawAsync(int accountId, decimal amount);
+        Task TransferAsync(int fromAccountId, int toAccountId, decimal amount);
+        Task DeleteAsync(int id);
     }
 }

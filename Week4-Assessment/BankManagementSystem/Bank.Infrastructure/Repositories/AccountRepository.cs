@@ -12,42 +12,38 @@ namespace Bank.Infrastructure.Repositories
 {
     public class AccountRepository : IAccountRepository
     {
-        public readonly AppDbContext _context;
+        private readonly AppDbContext _context;
 
         public AccountRepository(AppDbContext context)
         {
             _context = context;
         }
 
-
+        public async Task<Account?> GetByIdAsync(int id)
+        {
+            return await _context.Accounts
+                .Include(a => a.Customer)
+                .Include(a => a.Transactions)
+                .FirstOrDefaultAsync(a => a.AccountId == id);
+        }
 
         public async Task<List<Account>> GetAllAsync()
         {
-            //return await _context.Accounts.ToListAsync();
             return await _context.Accounts
-                         .Include(a => a.Customer)
-                         .Include(a => a.Transactions)
-                         .ToListAsync();
+                .Include(a => a.Customer)
+                .Include(a => a.Transactions)
+                .ToListAsync();
         }
 
-        public async Task<Account?> GetByIdAsync(int id)
+        public async Task AddAsync(Account entity)
         {
-            //return await _context.Accounts.FindAsync(id);
-            return await _context.Accounts
-                         .Include(a => a.Customer)
-                         .Include(a => a.Transactions)
-                         .FirstOrDefaultAsync(a => a.AccountId == id);
-        }
-
-        public async Task AddAsync(Account account)
-        {
-            _context.Accounts.Add(account);
+            await _context.Accounts.AddAsync(entity);
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(Account account)
+        public async Task UpdateAsync(Account entity)
         {
-            _context.Accounts.Update(account);
+            _context.Accounts.Update(entity);
             await _context.SaveChangesAsync();
         }
 
@@ -59,13 +55,6 @@ namespace Bank.Infrastructure.Repositories
                 _context.Accounts.Remove(account);
                 await _context.SaveChangesAsync();
             }
-        }
-        public async Task<Account?> GetAccountByCustomerIdAsync(int customerId)
-        {
-            return await _context.Accounts
-                .Include(a => a.Customer)
-                .Include(a => a.Transactions)
-                .FirstOrDefaultAsync(a => a.CustomerId == customerId);
         }
 
 
