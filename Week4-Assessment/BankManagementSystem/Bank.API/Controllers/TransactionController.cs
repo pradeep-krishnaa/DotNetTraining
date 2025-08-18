@@ -31,18 +31,11 @@ namespace Bank.API.Controllers
             return Ok(transaction);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Add(TransactionRequestDTO dto)
+        [HttpGet("account/{accountId}")]
+        public async Task<IActionResult> GetByAccount(int accountId)
         {
-            await _service.AddAsync(dto);
-            return Ok("Transaction added successfully");
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            await _service.DeleteAsync(id);
-            return Ok("Transaction deleted successfully");
+            var transactions = await _service.GetByAccountIdAsync(accountId);
+            return Ok(transactions);
         }
     }
 }

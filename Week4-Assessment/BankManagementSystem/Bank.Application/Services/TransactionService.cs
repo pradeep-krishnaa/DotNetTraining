@@ -33,35 +33,32 @@ namespace Bank.Application.Services
 
         public async Task<TransactionResponseDTO?> GetByIdAsync(int id)
         {
-            var transaction = await _transactionRepo.GetByIdAsync(id);
-            if (transaction == null) return null;
+            var t = await _transactionRepo.GetByIdAsync(id);
+            if (t == null) return null;
 
             return new TransactionResponseDTO
             {
-                TransactionId = transaction.TransactionId,
-                AccountId = transaction.AccountId,
-                Amount = transaction.Amount,
-                Type = transaction.Type,
-                Date = transaction.Date
+                TransactionId = t.TransactionId,
+                AccountId = t.AccountId,
+                Amount = t.Amount,
+                Type = t.Type,
+                Date = t.Date
             };
         }
 
-        public async Task AddAsync(TransactionRequestDTO dto)
+        public async Task<List<TransactionResponseDTO>> GetByAccountIdAsync(int accountId)
         {
-            var transaction = new Transaction
-            {
-                AccountId = dto.AccountId,
-                Amount = dto.Amount,
-                Type = dto.Type,
-                Date = DateTime.Now
-            };
-
-            await _transactionRepo.AddAsync(transaction);
-        }
-
-        public async Task DeleteAsync(int id)
-        {
-            await _transactionRepo.DeleteAsync(id);
+            var transactions = await _transactionRepo.GetAllAsync();
+            return transactions
+                .Where(t => t.AccountId == accountId)
+                .Select(t => new TransactionResponseDTO
+                {
+                    TransactionId = t.TransactionId,
+                    AccountId = t.AccountId,
+                    Amount = t.Amount,
+                    Type = t.Type,
+                    Date = t.Date
+                }).ToList();
         }
     }
 }

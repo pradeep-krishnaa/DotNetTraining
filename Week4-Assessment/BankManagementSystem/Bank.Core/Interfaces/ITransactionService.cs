@@ -11,7 +11,6 @@ namespace Bank.Core.Interfaces
     {
         Task<List<TransactionResponseDTO>> GetAllAsync();
         Task<TransactionResponseDTO?> GetByIdAsync(int id);
-        Task AddAsync(TransactionRequestDTO dto);
-        Task DeleteAsync(int id);
+        Task<List<TransactionResponseDTO>> GetByAccountIdAsync(int accountId);
     }
 }

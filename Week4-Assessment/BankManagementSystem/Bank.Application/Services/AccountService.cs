@@ -15,12 +15,23 @@ namespace Bank.Application.Services
     public class AccountService : IAccountService
     {
         private readonly IAccountRepository _accountRepo;
-        private readonly ICustomerRepository _customerRepo;
+        private readonly ITransactionRepository _transactionRepo;
 
-        public AccountService(IAccountRepository accountRepo, ICustomerRepository customerRepo)
+        public AccountService(IAccountRepository accountRepo, ITransactionRepository transactionRepo)
         {
             _accountRepo = accountRepo;
-            _customerRepo = customerRepo;
+            _transactionRepo = transactionRepo;
+        }
+
+        public async Task<List<AccountResponseDTO>> GetAllAccountsAsync()
+        {
+            var accounts = await _accountRepo.GetAllAsync();
+            return accounts.Select(a => new AccountResponseDTO
+            {
+                AccountId = a.AccountId,
+                CustomerId = a.CustomerId,
+                Balance = a.Balance
+            }).ToList();
         }
 
         public async Task<AccountResponseDTO?> GetAccountByIdAsync(int id)
@@ -31,34 +42,33 @@ namespace Bank.Application.Services
             return new AccountResponseDTO
             {
                 AccountId = account.AccountId,
-                Balance = account.Balance,
-                CustomerId = account.CustomerId
+                CustomerId = account.CustomerId,
+                Balance = account.Balance
             };
-        }
-
-        public async Task<List<AccountResponseDTO>> GetAllAccountsAsync()
-        {
-            var accounts = await _accountRepo.GetAllAsync();
-            return accounts.Select(a => new AccountResponseDTO
-            {
-                AccountId = a.AccountId,
-                Balance = a.Balance,
-                CustomerId = a.CustomerId
-            }).ToList();
         }
 
         public async Task CreateAccountAsync(AccountRequestDTO dto)
         {
-            var customer = await _customerRepo.GetByIdAsync(dto.CustomerId);
-            if (customer == null) throw new Exception("Customer not found");
-
             var account = new Account
             {
-                Balance = dto.InitialDeposit,
-                CustomerId = dto.CustomerId
+                CustomerId = dto.CustomerId,
+                Balance = dto.InitialDeposit
             };
 
             await _accountRepo.AddAsync(account);
+
+            // ✅ Log initial deposit as transaction (if > 0)
+            if (dto.InitialDeposit > 0)
+            {
+                var transaction = new Transaction
+                {
+                    AccountId = account.AccountId,
+                    Amount = dto.InitialDeposit,
+                    Type = "Deposit",
+                    Date = DateTime.UtcNow
+                };
+                await _transactionRepo.AddAsync(transaction);
+            }
         }
 
         public async Task DepositAsync(int accountId, decimal amount)
@@ -68,6 +78,16 @@ namespace Bank.Application.Services
 
             account.Balance += amount;
             await _accountRepo.UpdateAsync(account);
+
+            // ✅ Log transaction
+            var transaction = new Transaction
+            {
+                AccountId = accountId,
+                Amount = amount,
+                Type = "Deposit",
+                Date = DateTime.UtcNow
+            };
+            await _transactionRepo.AddAsync(transaction);
         }
 
         public async Task WithdrawAsync(int accountId, decimal amount)
@@ -78,24 +98,54 @@ namespace Bank.Application.Services
 
             account.Balance -= amount;
             await _accountRepo.UpdateAsync(account);
+
+            // ✅ Log transaction
+            var transaction = new Transaction
+            {
+                AccountId = accountId,
+                Amount = amount,
+                Type = "Withdrawal",
+                Date = DateTime.UtcNow
+            };
+            await _transactionRepo.AddAsync(transaction);
         }
 
         public async Task TransferAsync(int fromAccountId, int toAccountId, decimal amount)
         {
-            var fromAcc = await _accountRepo.GetByIdAsync(fromAccountId);
-            var toAcc = await _accountRepo.GetByIdAsync(toAccountId);
+            var fromAccount = await _accountRepo.GetByIdAsync(fromAccountId);
+            var toAccount = await _accountRepo.GetByIdAsync(toAccountId);
 
-            if (fromAcc == null || toAcc == null)
+            if (fromAccount == null || toAccount == null)
                 throw new Exception("One or both accounts not found");
 
-            if (fromAcc.Balance < amount)
+            if (fromAccount.Balance < amount)
                 throw new Exception("Insufficient balance");
 
-            fromAcc.Balance -= amount;
-            toAcc.Balance += amount;
+            fromAccount.Balance -= amount;
+            toAccount.Balance += amount;
 
-            await _accountRepo.UpdateAsync(fromAcc);
-            await _accountRepo.UpdateAsync(toAcc);
+            await _accountRepo.UpdateAsync(fromAccount);
+            await _accountRepo.UpdateAsync(toAccount);
+
+            // ✅ Log debit transaction
+            var debitTransaction = new Transaction
+            {
+                AccountId = fromAccountId,
+                Amount = amount,
+                Type = "Transfer - Debit",
+                Date = DateTime.UtcNow
+            };
+            await _transactionRepo.AddAsync(debitTransaction);
+
+            // ✅ Log credit transaction
+            var creditTransaction = new Transaction
+            {
+                AccountId = toAccountId,
+                Amount = amount,
+                Type = "Transfer - Credit",
+                Date = DateTime.UtcNow
+            };
+            await _transactionRepo.AddAsync(creditTransaction);
         }
 
         public async Task DeleteAsync(int id)

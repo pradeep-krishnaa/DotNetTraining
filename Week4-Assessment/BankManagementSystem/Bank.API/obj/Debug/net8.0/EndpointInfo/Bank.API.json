@@ -327,35 +327,6 @@
             "description": "OK"
           }
         }
-      },
-      "post": {
-        "tags": [
-          "Transaction"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TransactionRequestDTO"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TransactionRequestDTO"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/TransactionRequestDTO"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
       }
     },
     "/api/Transaction/{id}": {
@@ -379,14 +350,16 @@
             "description": "OK"
           }
         }
-      },
-      "delete": {
+      }
+    },
+    "/api/Transaction/account/{accountId}": {
+      "get": {
         "tags": [
           "Transaction"
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "accountId",
             "in": "path",
             "required": true,
             "schema": {
@@ -463,29 +436,6 @@
         "properties": {
           "customerName": {
             "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "TransactionRequestDTO": {
-        "type": "object",
-        "properties": {
-          "accountId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "amount": {
-            "type": "number",
-            "format": "double"
-          },
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "tragetAccountId": {
-            "type": "integer",
-            "format": "int32",
             "nullable": true
           }
         },
