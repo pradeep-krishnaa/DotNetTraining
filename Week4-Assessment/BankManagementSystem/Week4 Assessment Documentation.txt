@@ -1,0 +1,864 @@
+Week4 Assessment Documentation
+
+Bank.Core/Entities
+
+Customer.cs
+
+public class Customer
+{
+    public int CustomerId { get; set; }
+    public string CustomerName { get; set; }
+
+    public List<Account> Accounts { get; set; } = new List<Account>();
+}
+
+Account.cs
+
+public class Account
+{
+    public int AccountId { get; set; }
+    public decimal Balance { get; set; }
+
+    public int CustomerId { get; set; }
+    public Customer Customer { get; set; }
+
+    public List<Transaction> Transactions { get; set; } = new List<Transaction>();
+
+}
+
+Transaction.cs
+
+public class Transaction
+{
+    public int TransactionId { get; set; }
+    public int AccountId { get; set; }
+    public Account Account { get; set; }
+    public DateTime Date { get; set; } = DateTime.Now;
+    public decimal Amount { get; set; }
+    public string Type { get; set; } // e.g., "Deposit", "Withdrawal", "Transfer"
+}
+
+Bank.Core/Interfaces
+
+IRepository.cs
+
+public interface IRepository<T> where T : class
+{
+    Task<T> GetByIdAsync(int id);
+    Task<List<T>> GetAllAsync();
+    Task UpdateAsync(T entity);
+    Task DeleteAsync(int id);
+    Task AddAsync(T entity);
+}
+
+ICustomerRepository , IAccountRepository , ITransactionRepository inherits IRepository
+
+ICustomerService.cs
+
+public interface ICustomerService
+{
+    Task<List<CustomerResponseDTO>> GetAllCustomersAsync();
+    Task<CustomerResponseDTO?> GetCustomerByIdAsync(int id);
+    Task AddCustomerAsync(CustomerRequestDTO customer);
+    Task UpdateCustomerAsync(int id, CustomerRequestDTO customer);
+    Task DeleteCustomerAsync(int id);
+}
+
+IAccountService.cs
+
+public interface IAccountService
+{
+    Task<List<AccountResponseDTO>> GetAllAccountsAsync();
+    Task<AccountResponseDTO?> GetAccountByIdAsync(int id);
+    Task CreateAccountAsync(AccountRequestDTO dto);
+    Task DepositAsync(int accountId, decimal amount);
+    Task WithdrawAsync(int accountId, decimal amount);
+    Task TransferAsync(int fromAccountId, int toAccountId, decimal amount);
+    Task DeleteAsync(int id);
+}
+
+ITransactionService.cs
+
+public interface ITransactionService
+{
+    Task<List<TransactionResponseDTO>> GetAllAsync();
+    Task<TransactionResponseDTO?> GetByIdAsync(int id);
+    Task<List<TransactionResponseDTO>> GetByAccountIdAsync(int accountId);
+}
+
+Bank.Core/DTOs - contains Request and Response DTOs for Customer , Account , Transaction
+
+Bank.Infratsructure/
+
+Data/AppDbContext - has dbsets 
+
+Repositories/
+CustomerRepository.cs
+
+public class CustomerRepository : ICustomerRepository
+{
+    private readonly AppDbContext _context;
+
+    public CustomerRepository(AppDbContext context)
+    {
+        _context = context;
+    }
+
+    public async Task<Customer?> GetByIdAsync(int id)
+    {
+        return await _context.Customers
+            .Include(c => c.Accounts)
+            .ThenInclude(a => a.Transactions)
+            .FirstOrDefaultAsync(c => c.CustomerId == id);
+    }
+
+    public async Task<List<Customer>> GetAllAsync()
+    {
+        return await _context.Customers
+            .Include(c => c.Accounts)
+            .ThenInclude(a => a.Transactions)
+            .ToListAsync();
+    }
+
+    public async Task AddAsync(Customer entity)
+    {
+        await _context.Customers.AddAsync(entity);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task UpdateAsync(Customer entity)
+    {
+        _context.Customers.Update(entity);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task DeleteAsync(int id)
+    {
+        var customer = await _context.Customers.FindAsync(id);
+        if (customer != null)
+        {
+            _context.Customers.Remove(customer);
+            await _context.SaveChangesAsync();
+        }
+    }
+
+
+
+}
+
+AccountRepository.cs
+
+public class AccountRepository : IAccountRepository
+{
+    private readonly AppDbContext _context;
+
+    public AccountRepository(AppDbContext context)
+    {
+        _context = context;
+    }
+
+    public async Task<Account?> GetByIdAsync(int id)
+    {
+        return await _context.Accounts
+            .Include(a => a.Customer)
+            .Include(a => a.Transactions)
+            .FirstOrDefaultAsync(a => a.AccountId == id);
+    }
+
+    public async Task<List<Account>> GetAllAsync()
+    {
+        return await _context.Accounts
+            .Include(a => a.Customer)
+            .Include(a => a.Transactions)
+            .ToListAsync();
+    }
+
+    public async Task AddAsync(Account entity)
+    {
+        await _context.Accounts.AddAsync(entity);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task UpdateAsync(Account entity)
+    {
+        _context.Accounts.Update(entity);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task DeleteAsync(int id)
+    {
+        var account = await _context.Accounts.FindAsync(id);
+        if (account != null)
+        {
+            _context.Accounts.Remove(account);
+            await _context.SaveChangesAsync();
+        }
+    }
+
+
+
+}
+
+TransactionRepository.cs
+
+public class TransactionRepository : ITransactionRepository
+{
+
+    private readonly AppDbContext _context;
+
+    public TransactionRepository(AppDbContext context)
+    {
+        _context = context;
+    }
+
+    public async Task<Transaction?> GetByIdAsync(int id)
+    {
+        return await _context.Transactions
+            .Include(t => t.Account)
+            .FirstOrDefaultAsync(t => t.TransactionId == id);
+    }
+
+    public async Task<List<Transaction>> GetAllAsync()
+    {
+        return await _context.Transactions
+            .Include(t => t.Account)
+            .ToListAsync();
+    }
+
+    public async Task AddAsync(Transaction entity)
+    {
+        await _context.Transactions.AddAsync(entity);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task UpdateAsync(Transaction entity)
+    {
+        _context.Transactions.Update(entity);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task DeleteAsync(int id)
+    {
+        var transaction = await _context.Transactions.FindAsync(id);
+        if (transaction != null)
+        {
+            _context.Transactions.Remove(transaction);
+            await _context.SaveChangesAsync();
+        }
+    }
+
+
+
+}
+
+Bank.Application/Services
+
+CustomerService.cs
+
+public class CustomerService : ICustomerService
+{
+    private readonly ICustomerRepository _customerRepo;
+
+    public CustomerService(ICustomerRepository customerRepo)
+    {
+        _customerRepo = customerRepo;
+    }
+
+    public async Task<List<CustomerResponseDTO>> GetAllCustomersAsync()
+    {
+        var customers = await _customerRepo.GetAllAsync();
+        return customers.Select(c => new CustomerResponseDTO
+        {
+            CustomerId = c.CustomerId,
+            CustomerName = c.CustomerName
+        }).ToList();
+    }
+
+    public async Task<CustomerResponseDTO?> GetCustomerByIdAsync(int id)
+    {
+        var customer = await _customerRepo.GetByIdAsync(id);
+        if (customer == null) return null;
+
+        return new CustomerResponseDTO
+        {
+            CustomerId = customer.CustomerId,
+            CustomerName = customer.CustomerName
+        };
+    }
+
+    public async Task AddCustomerAsync(CustomerRequestDTO dto)
+    {
+        var customer = new Customer
+        {
+            CustomerName = dto.CustomerName
+        };
+
+        await _customerRepo.AddAsync(customer);
+    }
+
+    public async Task UpdateCustomerAsync(int id, CustomerRequestDTO dto)
+    {
+        var existing = await _customerRepo.GetByIdAsync(id);
+        if (existing == null) throw new Exception("Customer not found");
+
+        existing.CustomerName = dto.CustomerName;
+
+        await _customerRepo.UpdateAsync(existing);
+    }
+
+    public async Task DeleteCustomerAsync(int id)
+    {
+        await _customerRepo.DeleteAsync(id);
+    }
+}
+
+AccountService.cs
+
+public class AccountService : IAccountService
+{
+    private readonly IAccountRepository _accountRepo;
+    private readonly ITransactionRepository _transactionRepo;
+
+    public AccountService(IAccountRepository accountRepo, ITransactionRepository transactionRepo)
+    {
+        _accountRepo = accountRepo;
+        _transactionRepo = transactionRepo;
+    }
+
+    public async Task<List<AccountResponseDTO>> GetAllAccountsAsync()
+    {
+        var accounts = await _accountRepo.GetAllAsync();
+        return accounts.Select(a => new AccountResponseDTO
+        {
+            AccountId = a.AccountId,
+            CustomerId = a.CustomerId,
+            Balance = a.Balance
+        }).ToList();
+    }
+
+    public async Task<AccountResponseDTO?> GetAccountByIdAsync(int id)
+    {
+        var account = await _accountRepo.GetByIdAsync(id);
+        if (account == null) return null;
+
+        return new AccountResponseDTO
+        {
+            AccountId = account.AccountId,
+            CustomerId = account.CustomerId,
+            Balance = account.Balance
+        };
+    }
+
+    public async Task CreateAccountAsync(AccountRequestDTO dto)
+    {
+        var account = new Account
+        {
+            CustomerId = dto.CustomerId,
+            Balance = dto.InitialDeposit
+        };
+
+        await _accountRepo.AddAsync(account);
+
+        // ✅ Log initial deposit as transaction (if > 0)
+        if (dto.InitialDeposit > 0)
+        {
+            var transaction = new Transaction
+            {
+                AccountId = account.AccountId,
+                Amount = dto.InitialDeposit,
+                Type = "Deposit",
+                Date = DateTime.UtcNow
+            };
+            await _transactionRepo.AddAsync(transaction);
+        }
+    }
+
+    public async Task DepositAsync(int accountId, decimal amount)
+    {
+        var account = await _accountRepo.GetByIdAsync(accountId);
+        if (account == null) throw new Exception("Account not found");
+
+        account.Balance += amount;
+        await _accountRepo.UpdateAsync(account);
+
+        // ✅ Log transaction
+        var transaction = new Transaction
+        {
+            AccountId = accountId,
+            Amount = amount,
+            Type = "Deposit",
+            Date = DateTime.UtcNow
+        };
+        await _transactionRepo.AddAsync(transaction);
+    }
+
+    public async Task WithdrawAsync(int accountId, decimal amount)
+    {
+        var account = await _accountRepo.GetByIdAsync(accountId);
+        if (account == null) throw new Exception("Account not found");
+        if (account.Balance < amount) throw new Exception("Insufficient balance");
+
+        account.Balance -= amount;
+        await _accountRepo.UpdateAsync(account);
+
+        // ✅ Log transaction
+        var transaction = new Transaction
+        {
+            AccountId = accountId,
+            Amount = amount,
+            Type = "Withdrawal",
+            Date = DateTime.UtcNow
+        };
+        await _transactionRepo.AddAsync(transaction);
+    }
+
+    public async Task TransferAsync(int fromAccountId, int toAccountId, decimal amount)
+    {
+        var fromAccount = await _accountRepo.GetByIdAsync(fromAccountId);
+        var toAccount = await _accountRepo.GetByIdAsync(toAccountId);
+
+        if (fromAccount == null || toAccount == null)
+            throw new Exception("One or both accounts not found");
+
+        if (fromAccount.Balance < amount)
+            throw new Exception("Insufficient balance");
+
+        fromAccount.Balance -= amount;
+        toAccount.Balance += amount;
+
+        await _accountRepo.UpdateAsync(fromAccount);
+        await _accountRepo.UpdateAsync(toAccount);
+
+        // ✅ Log debit transaction
+        var debitTransaction = new Transaction
+        {
+            AccountId = fromAccountId,
+            Amount = amount,
+            Type = "Transfer - Debit",
+            Date = DateTime.UtcNow
+        };
+        await _transactionRepo.AddAsync(debitTransaction);
+
+        // ✅ Log credit transaction
+        var creditTransaction = new Transaction
+        {
+            AccountId = toAccountId,
+            Amount = amount,
+            Type = "Transfer - Credit",
+            Date = DateTime.UtcNow
+        };
+        await _transactionRepo.AddAsync(creditTransaction);
+    }
+
+    public async Task DeleteAsync(int id)
+    {
+        await _accountRepo.DeleteAsync(id);
+    }
+
+
+}
+
+TransactionService.cs
+
+public class TransactionService : ITransactionService
+{
+    private readonly ITransactionRepository _transactionRepo;
+
+    public TransactionService(ITransactionRepository transactionRepo)
+    {
+        _transactionRepo = transactionRepo;
+    }
+
+    public async Task<List<TransactionResponseDTO>> GetAllAsync()
+    {
+        var transactions = await _transactionRepo.GetAllAsync();
+        return transactions.Select(t => new TransactionResponseDTO
+        {
+            TransactionId = t.TransactionId,
+            AccountId = t.AccountId,
+            Amount = t.Amount,
+            Type = t.Type,
+            Date = t.Date
+        }).ToList();
+    }
+
+    public async Task<TransactionResponseDTO?> GetByIdAsync(int id)
+    {
+        var t = await _transactionRepo.GetByIdAsync(id);
+        if (t == null) return null;
+
+        return new TransactionResponseDTO
+        {
+            TransactionId = t.TransactionId,
+            AccountId = t.AccountId,
+            Amount = t.Amount,
+            Type = t.Type,
+            Date = t.Date
+        };
+    }
+
+    public async Task<List<TransactionResponseDTO>> GetByAccountIdAsync(int accountId)
+    {
+        var transactions = await _transactionRepo.GetAllAsync();
+        return transactions
+            .Where(t => t.AccountId == accountId)
+            .Select(t => new TransactionResponseDTO
+            {
+                TransactionId = t.TransactionId,
+                AccountId = t.AccountId,
+                Amount = t.Amount,
+                Type = t.Type,
+                Date = t.Date
+            }).ToList();
+    }
+}
+
+Bank.Application/Mapping - has Automapper setup in MappingProfile.cs
+
+Bank.API/Controllers
+
+CustomerController.cs
+
+namespace Bank.API.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class CustomerController : ControllerBase
+    {
+        private readonly ICustomerService _service;
+
+        public CustomerController(ICustomerService service)
+        {
+            _service = service;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var customers = await _service.GetAllCustomersAsync();
+            return Ok(customers);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var customer = await _service.GetCustomerByIdAsync(id);
+            if (customer == null) return NotFound();
+            return Ok(customer);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(CustomerRequestDTO dto)
+        {
+            await _service.AddCustomerAsync(dto);
+            return Ok("Customer created successfully");
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, CustomerRequestDTO dto)
+        {
+            await _service.UpdateCustomerAsync(id, dto);
+            return Ok("Customer updated successfully");
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _service.DeleteCustomerAsync(id);
+            return Ok("Customer deleted successfully");
+        }
+    }
+}
+
+AccountController.cs
+
+namespace Bank.API.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class AccountController : ControllerBase
+    {
+        private readonly IAccountService _service;
+
+        public AccountController(IAccountService service)
+        {
+            _service = service;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var accounts = await _service.GetAllAccountsAsync();
+            return Ok(accounts);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var account = await _service.GetAccountByIdAsync(id);
+            if (account == null) return NotFound();
+            return Ok(account);
+        }
+
+        [HttpPost("create")]
+        public async Task<IActionResult> Create(AccountRequestDTO dto)
+        {
+            await _service.CreateAccountAsync(dto);
+            return Ok("Account created successfully");
+        }
+
+        [HttpPost("deposit/{id}")]
+        public async Task<IActionResult> Deposit(int id, [FromQuery] decimal amount)
+        {
+            await _service.DepositAsync(id, amount);
+            return Ok("Deposit successful");
+        }
+
+        [HttpPost("withdraw/{id}")]
+        public async Task<IActionResult> Withdraw(int id, [FromQuery] decimal amount)
+        {
+            await _service.WithdrawAsync(id, amount);
+            return Ok("Withdrawal successful");
+        }
+
+        [HttpPost("transfer")]
+        public async Task<IActionResult> Transfer([FromQuery] int fromId, [FromQuery] int toId, [FromQuery] decimal amount)
+        {
+            await _service.TransferAsync(fromId, toId, amount);
+            return Ok("Transfer successful");
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _service.DeleteAsync(id);
+            return Ok("Account deleted successfully");
+        }
+    }
+}
+
+Transactioncontroller.cs
+
+namespace Bank.API.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class TransactionController : ControllerBase
+    {
+        private readonly ITransactionService _service;
+
+        public TransactionController(ITransactionService service)
+        {
+            _service = service;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var transactions = await _service.GetAllAsync();
+            return Ok(transactions);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var transaction = await _service.GetByIdAsync(id);
+            if (transaction == null) return NotFound();
+            return Ok(transaction);
+        }
+
+        [HttpGet("account/{accountId}")]
+        public async Task<IActionResult> GetByAccount(int accountId)
+        {
+            var transactions = await _service.GetByAccountIdAsync(accountId);
+            return Ok(transactions);
+        }
+    }
+}
+
+Porgram.cs
+
+using Bank.Application.Mapping;
+using Bank.Application.Services;
+using Bank.Core.Interfaces;
+using Bank.Infrastructure.Data;
+using Bank.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
+using System;
+
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+
+builder.Services.AddScoped<ICustomerService, CustomerService>();
+builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<ITransactionService, TransactionService>();
+builder.Services.AddScoped<ICustomerRepository , CustomerRepository>();
+builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("BankConnectionString"))); //injecting DbContext
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
+
+Bank.Test/AccountServiceTests.cs
+
+namespace Bank.Tests
+{
+    public class AccountServiceTests
+    {
+        private readonly Mock<IAccountRepository> _accountRepo;
+        private readonly Mock<ITransactionRepository> _transactionRepo;
+        private readonly AccountService _service;
+
+        public AccountServiceTests()
+        {
+            _accountRepo = new Mock<IAccountRepository>();
+            _transactionRepo = new Mock<ITransactionRepository>();
+            _service = new AccountService(_accountRepo.Object, _transactionRepo.Object);
+        }
+
+        [Fact]
+        public async Task Deposit_ShouldIncreaseBalance()
+        {
+            var account = new Account { AccountId = 1, Balance = 100m };
+            _accountRepo.Setup(r => r.GetByIdAsync(1)).ReturnsAsync(account);
+
+            await _service.DepositAsync(1, 50m);
+
+            Assert.Equal(150m, account.Balance);
+        }
+
+        [Fact]
+        public async Task Withdraw_ShouldDecreaseBalance()
+        {
+            var account = new Account { AccountId = 1, Balance = 200m };
+            _accountRepo.Setup(r => r.GetByIdAsync(1)).ReturnsAsync(account);
+
+            await _service.WithdrawAsync(1, 100m);
+
+            Assert.Equal(100m, account.Balance);
+        }
+
+        [Fact]
+        public async Task Transfer_ShouldMoveMoneyBetweenAccounts()
+        {
+            var from = new Account { AccountId = 1, Balance = 500m };
+            var to = new Account { AccountId = 2, Balance = 200m };
+            _accountRepo.Setup(r => r.GetByIdAsync(1)).ReturnsAsync(from);
+            _accountRepo.Setup(r => r.GetByIdAsync(2)).ReturnsAsync(to);
+
+            await _service.TransferAsync(1, 2, 150m);
+
+            Assert.Equal(350m, from.Balance);
+            Assert.Equal(350m, to.Balance);
+        }
+
+        [Fact]
+        public async Task Transfer_ShouldThrow_WhenInsufficientFunds()
+        {
+            var from = new Account { AccountId = 1, Balance = 50m };
+            var to = new Account { AccountId = 2, Balance = 100m };
+            _accountRepo.Setup(r => r.GetByIdAsync(1)).ReturnsAsync(from);
+            _accountRepo.Setup(r => r.GetByIdAsync(2)).ReturnsAsync(to);
+
+            var ex = await Assert.ThrowsAsync<Exception>(() => _service.TransferAsync(1, 2, 200m));
+
+            Assert.Equal("Insufficient balance", ex.Message);
+        }
+    }
+}
+
+
+TransactionServiceTests.cs
+
+namespace Bank.Tests
+{
+    public class TransactionServiceTests
+    {
+        private readonly Mock<ITransactionRepository> _transactionRepo;
+        private readonly TransactionService _service;
+
+        public TransactionServiceTests()
+        {
+            _transactionRepo = new Mock<ITransactionRepository>();
+            _service = new TransactionService(_transactionRepo.Object);
+        }
+
+        [Fact]
+        public async Task GetAllAsync_ShouldReturnTransactions()
+        {
+            var transactions = new List<Transaction>
+            {
+                new Transaction { TransactionId = 1, AccountId = 1, Amount = 100m, Type = "Deposit" },
+                new Transaction { TransactionId = 2, AccountId = 2, Amount = 200m, Type = "Withdraw" }
+            };
+
+            _transactionRepo.Setup(r => r.GetAllAsync()).ReturnsAsync(transactions);
+
+            var result = await _service.GetAllAsync();
+
+            Assert.Equal(2, result.Count);
+        }
+
+        [Fact]
+        public async Task GetByIdAsync_ShouldReturnTransaction()
+        {
+            var transaction = new Transaction { TransactionId = 1, AccountId = 1, Amount = 100m, Type = "Deposit" };
+            _transactionRepo.Setup(r => r.GetByIdAsync(1)).ReturnsAsync(transaction);
+
+            var result = await _service.GetByIdAsync(1);
+
+            Assert.NotNull(result);
+            Assert.Equal(1, result.TransactionId);
+            Assert.Equal(100m, result.Amount);
+        }
+
+       
+    }
+}
+
+
+Cooked Code:
+
+public async Task TransferMoney(string fromAcc, string toAcc, decimal amount)
+{
+
+    var sender = await _accountRepo.GetByAccountNumberAsync(fromAcc);
+    var receiver = await _accountRepo.GetByAccountNumberAsync(toAcc);
+
+    if (sender.Balance < amount)
+        throw new Exception("Insufficient funds");
+
+    sender.Balance -= amount;
+    receiver.Balance += amount;
+
+    await _accountRepo.UpdateAsync(sender);
+    await _accountRepo.UpdateAsync(receiver);
+}
+
+
