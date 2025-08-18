@@ -105,25 +105,28 @@ BankApp/
 
 ---
 
-## 🛠️ Tech Stack
+## Swagger Screenshots
 
-- .NET 6 Web API
-- Entity Framework Core
-- SQL Server (default, configurable)
-- Swagger (API Documentation)
+![alt text](image.png)
 
----
+![alt text](image-1.png)
 
-## 🚀 Future Improvements
+![alt text](image-2.png)
 
-- Authentication & Authorization (JWT)
-- Unit Tests & Integration Tests
-- Pagination for transactions
-- UI integration (React / Angular frontend)
+![alt text](image-3.png)
+
+![alt text](image-4.png)
+
+![alt text](image-5.png)
 
 ---
 
+## Test Screenshots
+
+![alt text](image-6.png)
+
+---
 ## 👨‍💻 Author
 
-**Your Name**  
+**Pradeep Krishnaa**  
 Bank Application - Training Project
