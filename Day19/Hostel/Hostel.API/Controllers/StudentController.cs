@@ -43,18 +43,19 @@ namespace Hostel.API.Controllers
 
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public async Task<IActionResult> UpdateStudent(int id, [FromBody] StudentRequestDTO studentRequestDTO)
         {
             await _studentService.UpdateStudentAsync(id, studentRequestDTO);
             return StatusCode(200, new { Message = "Student Updated Sucessfully" });
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteStudent(int id)
         {
             await _studentService.DeleteStudentAsync(id);
-            return StatusCode(200, new { Message = "Student Deleted Sucessfully" });
+            return Ok(new { Message = "Student Deleted Successfully" });
         }
+
     }
 }
