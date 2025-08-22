@@ -1,0 +1,14 @@
+﻿using EventEase.Core.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EventEase.Core.Interfaces
+{
+    public interface IRegistrationRepository : IRepository<Registration>
+    {
+        Task<List<Registration>> GetRegistrationsByEventIdAsync(int eventId);
+    }
+}
