@@ -38,7 +38,7 @@ namespace EventEase.API.Controllers
         {
             var ev = await _eventService.GetEventByIdAsync(id);
             if (ev == null)
-                return NotFound($"Event with ID {id} not found.");
+                return StatusCode(404 , new { Message = $"Event with ID {id} not found." });
 
             return Ok(ev);
         }

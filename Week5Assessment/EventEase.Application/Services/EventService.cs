@@ -2,6 +2,7 @@
 using AutoMapper;
 using EventEase.Core.DTOs;
 using EventEase.Core.Entities;
+using EventEase.Core.Exceptions;
 using EventEase.Core.Interfaces;
 
 namespace EventEase.Application.Services
@@ -33,7 +34,7 @@ namespace EventEase.Application.Services
 
             var existingEvent = await _eventRepository.GetByIdAsync(eventId);
             if (existingEvent == null)
-                throw new KeyNotFoundException($"Event with ID {eventId} not found");
+                throw new NotFoundException($"Event with ID {eventId} not found");
 
             _mapper.Map(eventRequestDTO, existingEvent);
             await _eventRepository.UpdateAsync(existingEvent);
@@ -43,7 +44,7 @@ namespace EventEase.Application.Services
         {
             var existingEvent = await _eventRepository.GetByIdAsync(eventId);
             if (existingEvent == null)
-                throw new KeyNotFoundException($"Event with ID {eventId} not found");
+                throw new NotFoundException($"Event with ID {eventId} not found");
 
             await _eventRepository.DeleteAsync(eventId);
         }
@@ -52,7 +53,7 @@ namespace EventEase.Application.Services
         {
             var existingEvent = await _eventRepository.GetByIdAsync(eventId);
             if (existingEvent == null)
-                throw new KeyNotFoundException($"Event with ID {eventId} not found");
+                throw new NotFoundException($"Event with ID {eventId} not found");
 
             return _mapper.Map<EventResponseDTO>(existingEvent);
         }

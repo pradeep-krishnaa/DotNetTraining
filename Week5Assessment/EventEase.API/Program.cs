@@ -1,3 +1,4 @@
+using EventEase.API.Extensions;
 using EventEase.Application.Services;
 using EventEase.Core.Interfaces;
 using EventEase.Infrastructure.Data;
@@ -26,6 +27,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("EventConnectionString"))); //injecting DbContext
 
 var app = builder.Build();
+app.UseGlobalExceptionMiddleware();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
