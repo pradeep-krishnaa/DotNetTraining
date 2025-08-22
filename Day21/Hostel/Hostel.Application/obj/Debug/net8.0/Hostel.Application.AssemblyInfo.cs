@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Hostel.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a8490f0d0112f361e14d352ceeb58598f44ffe64")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d920fbac1cbd81861944900419823b1c5e58a5de")]
 [assembly: System.Reflection.AssemblyProductAttribute("Hostel.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Hostel.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Hostel.Core.DTOs
 {
-    internal class AuthResponse
+    public class AuthResponse
     {
+        public string Token { get; set; } = string.Empty;
+        public int ExpiresIn { get; set; }
     }
 }
