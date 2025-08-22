@@ -718,3 +718,4 @@ C:\Users\pradkris\source\repos\DotNetTraining\Day21\Hostel\Hostel.API\obj\Debug\
 C:\Users\pradkris\source\repos\DotNetTraining\Day21\Hostel\Hostel.API\obj\Debug\net8.0\Hostel.API.pdb
 C:\Users\pradkris\source\repos\DotNetTraining\Day21\Hostel\Hostel.API\obj\Debug\net8.0\Hostel.API.genruntimeconfig.cache
 C:\Users\pradkris\source\repos\DotNetTraining\Day21\Hostel\Hostel.API\obj\Debug\net8.0\ref\Hostel.API.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Day21\Hostel\Hostel.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

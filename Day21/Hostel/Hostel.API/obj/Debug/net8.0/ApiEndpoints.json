@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "BugTracker.API.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Hostel.Core.DTOs.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Hostel.API.Controllers.RoomController",
     "Method": "GetAllRooms",
     "RelativePath": "api/Room",
