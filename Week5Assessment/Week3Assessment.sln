@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36310.24 d17.14
+VisualStudioVersion = 17.14.36310.24
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventEase.API", "EventEase.API\EventEase.API.csproj", "{BAD3C359-01BA-4A0F-9769-991CC034B9A4}"
 EndProject
@@ -10,6 +10,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventEase.Application", "EventEase.Application\EventEase.Application.csproj", "{6990E3E3-F240-4F96-B109-20ED0DA762E1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventEase.Infrastructure", "EventEase.Infrastructure\EventEase.Infrastructure.csproj", "{7FF52617-F9AD-453C-8826-0117125C43D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventEase.Test", "EventEase.Test\EventEase.Test.csproj", "{B0C315D3-B73E-4800-85DE-C188C9C7E997}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventEase.MVC", "EventEase.MVC\EventEase.MVC.csproj", "{69438128-041A-4C26-B8C7-601E808F82BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{7FF52617-F9AD-453C-8826-0117125C43D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FF52617-F9AD-453C-8826-0117125C43D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FF52617-F9AD-453C-8826-0117125C43D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0C315D3-B73E-4800-85DE-C188C9C7E997}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0C315D3-B73E-4800-85DE-C188C9C7E997}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0C315D3-B73E-4800-85DE-C188C9C7E997}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0C315D3-B73E-4800-85DE-C188C9C7E997}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69438128-041A-4C26-B8C7-601E808F82BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69438128-041A-4C26-B8C7-601E808F82BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69438128-041A-4C26-B8C7-601E808F82BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69438128-041A-4C26-B8C7-601E808F82BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
