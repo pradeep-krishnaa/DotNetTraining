@@ -4728,11 +4728,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day21\\Hostel\\Hostel.Core\\Hostel.Core.csproj",
+      "projectUniqueName": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day22\\Hostel\\Hostel.Core\\Hostel.Core.csproj",
       "projectName": "Hostel.Core",
-      "projectPath": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day21\\Hostel\\Hostel.Core\\Hostel.Core.csproj",
+      "projectPath": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day22\\Hostel\\Hostel.Core\\Hostel.Core.csproj",
       "packagesPath": "C:\\Users\\pradkris\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day21\\Hostel\\Hostel.Core\\obj\\",
+      "outputPath": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day22\\Hostel\\Hostel.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

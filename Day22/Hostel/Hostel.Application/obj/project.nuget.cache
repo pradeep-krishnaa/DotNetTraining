@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GC62i4o9U/Y=",
+  "dgSpecHash": "V6LTMBNhiGw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day21\\Hostel\\Hostel.Application\\Hostel.Application.csproj",
+  "projectFilePath": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day22\\Hostel\\Hostel.Application\\Hostel.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pradkris\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\pradkris\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

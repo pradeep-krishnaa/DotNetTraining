@@ -1,6 +1,7 @@
 ﻿using Hostel.Core.DTOs;
 using Hostel.Core.Entities;
 using Hostel.Core.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +9,7 @@ namespace Hostel.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class RoomController : ControllerBase
     {
         private readonly IRoomService _roomService;
