@@ -1,6 +1,7 @@
 ﻿using Hostel.Core.DTOs;
 using Hostel.Core.Entities;
 using Hostel.Core.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,6 +19,7 @@ namespace Hostel.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin , Staff")]
         public async Task<IActionResult> GetAllRooms()
         {
             var rooms = await _roomService.GetAllRoomsAsync();
@@ -25,6 +27,7 @@ namespace Hostel.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin , Staff")]
         public async Task<IActionResult> GetRoomById(int id)
         {
             var room = await _roomService.GetRoomByIdAsync(id);
@@ -35,24 +38,27 @@ namespace Hostel.API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddRoom([FromBody] RoomRequestDTO roomDto)
         {
             await _roomService.AddRoomAsync(roomDto);
-            return StatusCode(200, new { Message = "Student Created Successfully" });
+            return StatusCode(200, new { Message = "ROom Created Successfully" });
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateRoom(int id, [FromBody] RoomRequestDTO roomDto)
         {
             await _roomService.UpdateRoomAsync(id, roomDto);
-            return StatusCode(200, new { Message = "Student Updated Sucessfully" });
+            return StatusCode(200, new { Message = "Room Updated Sucessfully" });
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteRoom(int id)
         {
             await _roomService.DeleteRoomAsync(id);
-            return StatusCode(200, new { Message = "Student Deleted Sucessfully" });
+            return StatusCode(200, new { Message = "Room Deleted Sucessfully" });
         }
     }
 }

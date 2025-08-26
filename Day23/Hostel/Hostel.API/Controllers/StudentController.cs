@@ -1,5 +1,6 @@
 ﻿using Hostel.Core.DTOs;
 using Hostel.Core.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,6 +8,7 @@ namespace Hostel.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class StudentController : ControllerBase
     {
         private readonly IStudentService _studentService;
@@ -17,6 +19,7 @@ namespace Hostel.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin , Staff")]
         public async Task<IActionResult> GetAllStudents()
         {
             var students = await _studentService.GetAllStudentsAsync();
@@ -24,6 +27,7 @@ namespace Hostel.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin , Staff")]
         public async Task<IActionResult> GetStudentById(int id)
         {
             var student = await _studentService.GetStudentByIdAsync(id);
@@ -36,6 +40,7 @@ namespace Hostel.API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin , Staff")]
         public async Task<IActionResult> CreateStudent([FromBody] StudentRequestDTO studentRequestDTO)
         {
             await _studentService.AddStudentAsync(studentRequestDTO);
@@ -44,6 +49,7 @@ namespace Hostel.API.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin , Staff")]
         public async Task<IActionResult> UpdateStudent(int id, [FromBody] StudentRequestDTO studentRequestDTO)
         {
             await _studentService.UpdateStudentAsync(id, studentRequestDTO);
@@ -51,6 +57,7 @@ namespace Hostel.API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin , Staff")]
         public async Task<IActionResult> DeleteStudent(int id)
         {
             await _studentService.DeleteStudentAsync(id);

@@ -17,6 +17,7 @@ namespace Hostel.Infrastructure.Data
 
         public DbSet<Student> Students { get; set; }
         public DbSet<Room> Rooms { get; set; }
+        public DbSet<User> Users { get; set; }
 
     }
 }

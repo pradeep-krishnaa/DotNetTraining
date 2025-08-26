@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Os+0L0kPC1U=",
+  "dgSpecHash": "LFLMdXLsaxE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day21\\Hostel\\Hostel.Infrastucture\\Hostel.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day23\\Hostel\\Hostel.Infrastucture\\Hostel.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pradkris\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\pradkris\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

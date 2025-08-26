@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day21\\Hostel\\Hostel.Infrastucture\\Hostel.Infrastructure.csproj": {}
+    "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day23\\Hostel\\Hostel.Infrastucture\\Hostel.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day21\\Hostel\\Hostel.Core\\Hostel.Core.csproj": {
+    "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day23\\Hostel\\Hostel.Core\\Hostel.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day21\\Hostel\\Hostel.Core\\Hostel.Core.csproj",
+        "projectUniqueName": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day23\\Hostel\\Hostel.Core\\Hostel.Core.csproj",
         "projectName": "Hostel.Core",
-        "projectPath": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day21\\Hostel\\Hostel.Core\\Hostel.Core.csproj",
+        "projectPath": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day23\\Hostel\\Hostel.Core\\Hostel.Core.csproj",
         "packagesPath": "C:\\Users\\pradkris\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day21\\Hostel\\Hostel.Core\\obj\\",
+        "outputPath": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day23\\Hostel\\Hostel.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -87,14 +87,14 @@
         }
       }
     },
-    "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day21\\Hostel\\Hostel.Infrastucture\\Hostel.Infrastructure.csproj": {
+    "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day23\\Hostel\\Hostel.Infrastucture\\Hostel.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day21\\Hostel\\Hostel.Infrastucture\\Hostel.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day23\\Hostel\\Hostel.Infrastucture\\Hostel.Infrastructure.csproj",
         "projectName": "Hostel.Infrastructure",
-        "projectPath": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day21\\Hostel\\Hostel.Infrastucture\\Hostel.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day23\\Hostel\\Hostel.Infrastucture\\Hostel.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\pradkris\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day21\\Hostel\\Hostel.Infrastucture\\obj\\",
+        "outputPath": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day23\\Hostel\\Hostel.Infrastucture\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -115,8 +115,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day21\\Hostel\\Hostel.Core\\Hostel.Core.csproj": {
-                "projectPath": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day21\\Hostel\\Hostel.Core\\Hostel.Core.csproj"
+              "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day23\\Hostel\\Hostel.Core\\Hostel.Core.csproj": {
+                "projectPath": "C:\\Users\\pradkris\\source\\repos\\DotNetTraining\\Day23\\Hostel\\Hostel.Core\\Hostel.Core.csproj"
               }
             }
           }
