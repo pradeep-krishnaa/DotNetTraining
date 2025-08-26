@@ -1,0 +1,30 @@
+﻿@model Hostel.MVC.Models.StudentViewModel
+
+@{
+    ViewData["Title"] = "Student Details";
+}
+
+<h2>Student Details - Id: @Model.StudentId</h2>
+
+@if (Model == null)
+{
+    <p class="text-danger">Student not found.</p>
+}
+else
+{
+    <dl class="row">
+        <dt class="col-sm-2">Id</dt>
+        <dd class="col-sm-10">@Model.StudentId</dd>
+
+        <dt class="col-sm-2">Name</dt>
+        <dd class="col-sm-10">@Model.StudentName</dd>
+
+        <dt class="col-sm-2">Department</dt>
+        <dd class="col-sm-10">@Model.StudentDepartment</dd>
+
+        <dt class="col-sm-2">Room Id</dt>
+        <dd class="col-sm-10">@Model.RoomId</dd>
+    </dl>
+}
+
+<a asp-controller="StudentView" asp-action="Index" class="btn btn-primary mt-3">Back to List</a>
