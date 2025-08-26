@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BugTracker.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+34e9b6ccce32021f9d94c4d9cc81e4dfa88c32bf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7c3301cd70731c4844ed2ed46402c2aac042e99f")]
 [assembly: System.Reflection.AssemblyProductAttribute("BugTracker.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BugTracker.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

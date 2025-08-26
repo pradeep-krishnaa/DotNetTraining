@@ -97,7 +97,7 @@ if (app.Environment.IsDevelopment())
     {
         c.SwaggerEndpoint("/swagger/bugs/swagger.json", "Bugs API v1");
         c.SwaggerEndpoint("/swagger/projects/swagger.json", "Projects API v1");
-        c.RoutePrefix = string.Empty; // optional: makes Swagger UI load at https://localhost:7128/
+        c.RoutePrefix = "swagger"; // optional: makes Swagger UI load at https://localhost:7128/
     });
 }
 
