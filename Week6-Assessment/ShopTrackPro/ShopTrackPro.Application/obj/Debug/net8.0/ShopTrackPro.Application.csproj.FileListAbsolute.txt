@@ -1,0 +1,12 @@
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.Application\bin\Debug\net8.0\ShopTrackPro.Application.deps.json
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.Application\bin\Debug\net8.0\ShopTrackPro.Application.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.Application\bin\Debug\net8.0\ShopTrackPro.Application.pdb
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.Application\obj\Debug\net8.0\ShopTrackPro.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.Application\obj\Debug\net8.0\ShopTrackPro.Application.AssemblyInfoInputs.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.Application\obj\Debug\net8.0\ShopTrackPro.Application.AssemblyInfo.cs
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.Application\obj\Debug\net8.0\ShopTrackPro.Application.csproj.CoreCompileInputs.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.Application\obj\Debug\net8.0\ShopTrackPro.Application.sourcelink.json
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.Application\obj\Debug\net8.0\ShopTrackPro.Application.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.Application\obj\Debug\net8.0\refint\ShopTrackPro.Application.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.Application\obj\Debug\net8.0\ShopTrackPro.Application.pdb
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.Application\obj\Debug\net8.0\ref\ShopTrackPro.Application.dll
