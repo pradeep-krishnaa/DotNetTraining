@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ShopTrackPro.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+34fddb060a1296f356fa1b35e0c46f4fb0e75260")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+15b097195556cf0780464cc28bef62b2305c2b2b")]
 [assembly: System.Reflection.AssemblyProductAttribute("ShopTrackPro.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ShopTrackPro.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
