@@ -12,7 +12,7 @@ namespace ShopTrackPro.Core.Entities
         public string Username { get; set; } = null!;
         public string Email { get; set; } = null!;
         public string Role { get; set; } = null!;
-        public string PasswordHash { get; set; } = null!;
+        public string? PasswordHash { get; set; } = null!;
 
         // Relationships
         public ICollection<Order> Orders { get; set; } = new List<Order>();

@@ -36,7 +36,7 @@ namespace ShopTrackPro.Application.Services
         public async Task AddUserAsync(UserRequestDTO dto)
         {
             var user = _mapper.Map<User>(dto);
-            user.PasswordHash = HashPassword(dto.Password);
+            //user.PasswordHash = HashPassword(dto.Password);
             await _repository.AddAsync(user);
         }
 
@@ -48,7 +48,7 @@ namespace ShopTrackPro.Application.Services
             user.Username = dto.Username;
             user.Email = dto.Email;
             user.Role = dto.Role;
-            user.PasswordHash = HashPassword(dto.Password);
+            //user.PasswordHash = HashPassword(dto.Password);
 
             await _repository.UpdateAsync(user);
         }
@@ -56,11 +56,11 @@ namespace ShopTrackPro.Application.Services
         public async Task DeleteUserAsync(int id) =>
             await _repository.DeleteAsync(id);
 
-        private string HashPassword(string password)
-        {
-            using var sha = SHA256.Create();
-            var bytes = sha.ComputeHash(Encoding.UTF8.GetBytes(password));
-            return Convert.ToBase64String(bytes);
-        }
+        //private string HashPassword(string password)
+        //{
+        //    using var sha = SHA256.Create();
+        //    var bytes = sha.ComputeHash(Encoding.UTF8.GetBytes(password));
+        //    return Convert.ToBase64String(bytes);
+        //}
     }
 }

@@ -10,3 +10,9 @@ C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\Shop
 C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.Application\obj\Debug\net8.0\refint\ShopTrackPro.Application.dll
 C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.Application\obj\Debug\net8.0\ShopTrackPro.Application.pdb
 C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.Application\obj\Debug\net8.0\ref\ShopTrackPro.Application.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.Application\obj\Debug\net8.0\ShopTrackPro.Application.csproj.AssemblyReference.cache
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.Application\bin\Debug\net8.0\ShopTrackPro.Core.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.Application\bin\Debug\net8.0\ShopTrackPro.Infrastructure.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.Application\bin\Debug\net8.0\ShopTrackPro.Core.pdb
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.Application\bin\Debug\net8.0\ShopTrackPro.Infrastructure.pdb
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.Application\obj\Debug\net8.0\ShopTrac.05660C58.Up2Date

@@ -176,3 +176,5 @@ C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\Shop
 C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\obj\Debug\net8.0\ShopTrackPro.API.pdb
 C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\obj\Debug\net8.0\ShopTrackPro.API.genruntimeconfig.cache
 C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\obj\Debug\net8.0\ref\ShopTrackPro.API.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

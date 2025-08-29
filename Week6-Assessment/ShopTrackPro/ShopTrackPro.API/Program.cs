@@ -1,5 +1,9 @@
 using Microsoft.EntityFrameworkCore;
+using ShopTrackPro.Application.Mapping;
+using ShopTrackPro.Application.Services;
+using ShopTrackPro.Core.Interfaces;
 using ShopTrackPro.Infrastructure.Data;
+using ShopTrackPro.Infrastructure.Repositories;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +14,17 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IOrderItemRepository, OrderItemRepository>();
+builder.Services.AddScoped<IOrderItemService, OrderItemService>();
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))); //injecting DbContext

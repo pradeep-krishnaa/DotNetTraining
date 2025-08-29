@@ -23,13 +23,13 @@ namespace ShopTrackPro.Application.Services
 
         public async Task<List<OrderResponseDTO>> GetAllOrdersAsync()
         {
-            var orders = await _repository.GetAllWithDetailsAsync();
+            var orders = await _repository.GetAllAsync();
             return _mapper.Map<List<OrderResponseDTO>>(orders);
         }
 
         public async Task<OrderResponseDTO?> GetOrderByIdAsync(int id)
         {
-            var order = await _repository.GetByIdWithDetailsAsync(id);
+            var order = await _repository.GetByIdAsync(id);
             return _mapper.Map<OrderResponseDTO?>(order);
         }
 
@@ -52,7 +52,7 @@ namespace ShopTrackPro.Application.Services
 
         public async Task UpdateOrderAsync(int id, OrderRequestDTO dto)
         {
-            var order = await _repository.GetByIdWithDetailsAsync(id);
+            var order = await _repository.GetByIdAsync(id);
             if (order == null) return;
 
             // reset items
