@@ -3,11 +3,13 @@ using ShopTrackPro.Core.DTOs;
 using ShopTrackPro.Application.Services;
 using ShopTrackPro.Core.DTOs;
 using ShopTrackPro.Core.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ShopTrackPro.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    //[Authorize]
     public class ProductsController : ControllerBase
     {
         private readonly IProductService _service;
@@ -18,6 +20,7 @@ namespace ShopTrackPro.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<List<ProductResponseDTO>>> GetAll()
         {
             var products = await _service.GetAllProductsAsync();
@@ -25,6 +28,7 @@ namespace ShopTrackPro.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Policy = "RequireAdmin")]
         public async Task<ActionResult<ProductResponseDTO>> GetById(int id)
         {
             var product = await _service.GetProductByIdAsync(id);

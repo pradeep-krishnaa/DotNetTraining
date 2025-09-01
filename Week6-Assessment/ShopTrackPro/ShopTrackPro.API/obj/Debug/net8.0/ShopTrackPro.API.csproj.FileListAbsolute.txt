@@ -169,7 +169,6 @@ C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\Shop
 C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\obj\Debug\net8.0\ShopTrac.E64326B6.Up2Date
 C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\obj\Debug\net8.0\ShopTrackPro.API.dll
 C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\obj\Debug\net8.0\refint\ShopTrackPro.API.dll
@@ -178,3 +177,5 @@ C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\Shop
 C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\obj\Debug\net8.0\ref\ShopTrackPro.API.dll
 C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

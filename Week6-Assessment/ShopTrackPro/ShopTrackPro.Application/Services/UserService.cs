@@ -45,7 +45,7 @@ namespace ShopTrackPro.Application.Services
             var user = await _repository.GetByIdAsync(id);
             if (user == null) return;
 
-            user.Username = dto.Username;
+            user.UserName = dto.Username;
             user.Email = dto.Email;
             user.Role = dto.Role;
             //user.PasswordHash = HashPassword(dto.Password);

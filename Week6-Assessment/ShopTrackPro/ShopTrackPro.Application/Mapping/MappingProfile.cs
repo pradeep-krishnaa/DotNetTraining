@@ -30,7 +30,7 @@ namespace ShopTrackPro.Application.Mapping
 
             // Order
             CreateMap<Order, OrderResponseDTO>()
-                .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.Username));
+                .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.UserName));
             CreateMap<OrderRequestDTO, Order>();
         }
     }

@@ -1,0 +1,98 @@
+﻿using ShopTrackPro.Core.DTOs;
+using ShopTrackPro.Core.Entities;
+using ShopTrackPro.Infrastructure.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using ShopTrackPro.Core;
+
+namespace Hostel.API.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class AuthController : ControllerBase
+    {
+        private readonly IConfiguration _configuration;
+        private readonly AppDbContext _context;  // ✅ use DbContext
+        private readonly PasswordHasher<User> _passwordHasher = new();
+
+        public AuthController(IConfiguration configuration, AppDbContext context)
+        {
+            _configuration = configuration;
+            _context = context;
+        }
+
+        // ✅ POST: api/auth/register
+        [HttpPost("register")]
+        public async Task<IActionResult> Register(RegisterRequest request)
+        {
+            if (await _context.Users.AnyAsync(u => u.UserName == request.UserName))
+                return BadRequest(new { Message = "Username already exists" });
+
+            var user = new User
+            {
+                UserName = request.UserName,
+                Role = request.Role ?? "Student",
+                Email = request.Email,
+                
+            };
+
+            user.PasswordHash = _passwordHasher.HashPassword(user, request.Password);
+
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { Message = "User created successfully" });
+        }
+
+        // ✅ POST: api/auth/login
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequest request)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.UserName == request.UserName);
+            if (user == null)
+                return Unauthorized(new { Message = "Invalid username or password" });
+
+            // Verify password
+            var result = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, request.Password);
+            if (result == PasswordVerificationResult.Failed)
+                return Unauthorized(new { Message = "Invalid username or password" });
+
+            var token = GenerateJwtToken(user);
+            return Ok(new { Token = token });
+        }
+
+        // ✅ JWT generator
+        private string GenerateJwtToken(User user)
+        {
+            var key = _configuration["Jwt:Key"];
+            var issuer = _configuration["Jwt:Issuer"];
+            var audience = _configuration["Jwt:Audience"];
+            var expirationMinutes = Convert.ToDouble(_configuration["Jwt:ExpirationInMinutes"]);
+
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            var claims = new[]
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+                new Claim(ClaimTypes.Role, user.Role ?? "Resident"),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
+
+            var token = new JwtSecurityToken(
+                issuer: issuer,
+                audience: audience,
+                claims: claims,
+                expires: DateTime.UtcNow.AddMinutes(expirationMinutes),
+                signingCredentials: credentials);
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+    }
+}

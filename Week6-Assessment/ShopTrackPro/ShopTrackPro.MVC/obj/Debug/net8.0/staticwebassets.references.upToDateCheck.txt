@@ -1,0 +1,9 @@
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\pradkris\source\repos\DotNetTraining\Week6-Assessment\ShopTrackPro\ShopTrackPro.API\obj\Debug\net8.0\staticwebassets.build.json

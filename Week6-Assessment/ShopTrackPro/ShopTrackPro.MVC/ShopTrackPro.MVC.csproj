@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ShopTrackPro.API\ShopTrackPro.API.csproj" />
+    <ProjectReference Include="..\ShopTrackPro.Application\ShopTrackPro.Application.csproj" />
+    <ProjectReference Include="..\ShopTrackPro.Core\ShopTrackPro.Core.csproj" />
+    <ProjectReference Include="..\ShopTrackPro.Infrastructure\ShopTrackPro.Infrastructure.csproj" />
+    <ProjectReference Include="..\ShopTrackPro.Test\ShopTrackPro.Test.csproj" />
+  </ItemGroup>
+
+</Project>

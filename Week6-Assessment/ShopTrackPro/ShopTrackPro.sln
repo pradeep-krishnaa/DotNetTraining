@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36310.24 d17.14
+VisualStudioVersion = 17.14.36310.24
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopTrackPro.API", "ShopTrackPro.API\ShopTrackPro.API.csproj", "{7397C212-BC53-4091-BBAF-707D3565E99A}"
 EndProject
@@ -10,6 +10,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopTrackPro.Application", "ShopTrackPro.Application\ShopTrackPro.Application.csproj", "{722D4FB0-0E97-4A4E-BD41-59AD0A022F30}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopTrackPro.Infrastructure", "ShopTrackPro.Infrastructure\ShopTrackPro.Infrastructure.csproj", "{8ED9B28C-9859-4E8F-82A4-62B682C153AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopTrackPro.Test", "ShopTrackPro.Test\ShopTrackPro.Test.csproj", "{50F5AF9E-C21B-4483-B023-0E43F26A95C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopTrackPro.MVC", "ShopTrackPro.MVC\ShopTrackPro.MVC.csproj", "{40A63465-0191-4571-BE88-3E3C53694278}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{8ED9B28C-9859-4E8F-82A4-62B682C153AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8ED9B28C-9859-4E8F-82A4-62B682C153AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8ED9B28C-9859-4E8F-82A4-62B682C153AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50F5AF9E-C21B-4483-B023-0E43F26A95C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50F5AF9E-C21B-4483-B023-0E43F26A95C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50F5AF9E-C21B-4483-B023-0E43F26A95C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50F5AF9E-C21B-4483-B023-0E43F26A95C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40A63465-0191-4571-BE88-3E3C53694278}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40A63465-0191-4571-BE88-3E3C53694278}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40A63465-0191-4571-BE88-3E3C53694278}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40A63465-0191-4571-BE88-3E3C53694278}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

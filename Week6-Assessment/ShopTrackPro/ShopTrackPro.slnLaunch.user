@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "ShopTrackPro.API\\ShopTrackPro.API.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "ShopTrackPro.MVC\\ShopTrackPro.MVC.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
